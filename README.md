@@ -10,3 +10,7 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 **For Participants:** Discover upcoming local races, enter events securely, track personal race history, and view integrated weather and route data.
 
 **Modern Architecture:** Fully containerized (Docker), API-driven backend, and prepared for cloud deployment.
+
+## 🗺 API Endpoint Plan
+
+Below is the structured RESTful API design mapping out the system requirements for the RaceDay platform.
