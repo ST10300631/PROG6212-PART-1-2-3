@@ -14,3 +14,12 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 ## 🗺 API Endpoint Plan
 
 Below is the structured RESTful API design mapping out the system requirements for the RaceDay platform.
+
+## 🏗 Tech Stack
+
+**Backend:** C# (.NET Core) (Choose yours)
+
+**Database:**  MySQL
+
+**🚀 Getting Started**
+
