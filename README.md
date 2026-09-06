@@ -46,7 +46,7 @@ Below is the structured RESTful API design mapping out the system requirements f
 
 **Backend:** C# (.NET Core) (Choose yours)
 
-**Database:**  MySQL
+**Database:** SQL Server Management Studio / MySQL / SQLite / PostSQL
 
 **🚀 Getting Started**
 
