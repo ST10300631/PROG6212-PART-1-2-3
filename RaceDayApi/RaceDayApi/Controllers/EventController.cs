@@ -75,6 +75,25 @@ namespace RaceDayApi.Controllers
             return Ok(eventItem);
         }
 
+        
+
+        // Delete Add Delete Event
+        [HttpDelete("{id}")]
+        public IActionResult DeleteEvent(int id)
+        {
+            var eventItem = _context.Events.Find(id);
+
+            if (eventItem == null)
+                return NotFound();
+
+            _context.Events.Remove(eventItem);
+            _context.SaveChanges();
+
+            return Ok(new
+            {
+                message = "Event deleted successfully"
+            });
+        }
 
 
     }
