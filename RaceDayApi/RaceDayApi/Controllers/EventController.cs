@@ -40,7 +40,23 @@ namespace RaceDayApi.Controllers
 
                 return Ok(eventItem);
             }
+
+        // POST: Add Create Event
+        [HttpPost]
+        public IActionResult CreateEvent(Event eventItem)
+        {
+            _context.Events.Add(eventItem);
+            _context.SaveChanges();
+
+            return CreatedAtAction(
+                nameof(GetEvent),
+                new { id = eventItem.EventId },
+                eventItem);
         }
+
+
+
+    }
 
     }
 
