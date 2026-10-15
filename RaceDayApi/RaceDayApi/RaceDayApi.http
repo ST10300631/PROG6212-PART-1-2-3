@@ -1,0 +1,211 @@
+@rootURL = https://localhost:7298
+@jwtToken = REPLACE_WITH_JWT_TOKEN
+
+
+# WEATHER FORECAST
+
+
+GET {{rootURL}}/weatherforecast
+Accept: application/json
+
+###
+
+# AUTH
+
+POST {{rootURL}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Sipho Dlamini",
+  "email": "sipho@email.com",
+  "password": "Password123!",
+  "role": "Participant",
+  "phone": "0821234567"
+}
+
+###
+
+POST {{rootURL}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "sipho@email.com",
+  "password": "Password123!"
+}
+
+###
+
+POST {{rootURL}}/api/auth/logout
+Authorization: Bearer {{jwtToken}}
+
+###
+
+# USERS
+
+
+GET {{rootURL}}/api/users/profile
+Authorization: Bearer {{jwtToken}}
+Accept: application/json
+
+###
+
+PUT {{rootURL}}/api/users/profile
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "name": "Sipho Dlamini",
+  "phone": "0821234567",
+  "emergencyContact": "0819998888"
+}
+
+###
+
+# EVENTS
+
+
+GET {{rootURL}}/api/events
+Accept: application/json
+
+###
+
+GET {{rootURL}}/api/events?search=Soweto10KClassicrathon
+Accept: application/json
+
+###
+
+GET {{rootURL}}/api/events/1
+Accept: application/json
+
+###
+
+POST {{rootURL}}/api/events
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "title": "Cape Town Marathon",
+  "description": "Annual marathon race",
+  "date": "2026-10-20",
+  "location": "Cape Town"
+}
+
+###
+
+PUT {{rootURL}}/api/events/1
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "title": "Cape Town Marathon Updated",
+  "description": "Updated description",
+  "date": "2026-10-21",
+  "location": "Cape Town"
+}
+
+###
+
+DELETE {{rootURL}}/api/events/1
+Authorization: Bearer {{jwtToken}}
+
+###
+
+
+# CATEGORIES
+
+GET {{rootURL}}/api/events/1/categories
+Accept: application/json
+
+###
+
+POST {{rootURL}}/api/events/1/categories
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "name": "21km Half Marathon",
+  "distanceKm": 21,
+  "entryFee": 250
+}
+
+###
+
+PUT {{rootURL}}/api/categories/1
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "name": "21km Elite",
+  "distanceKm": 21,
+  "entryFee": 300
+}
+
+###
+
+DELETE {{rootURL}}/api/categories/1
+Authorization: Bearer {{jwtToken}}
+
+###
+
+# ENROLMENTS
+
+POST {{rootURL}}/api/enrolments
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "categoryId": 1,
+  "emergencyDetails": "Contact Mother: 0811234567"
+}
+
+###
+
+GET {{rootURL}}/api/enrolments/my-history
+Authorization: Bearer {{jwtToken}}
+
+###
+
+GET {{rootURL}}/api/events/1/enrolments
+Authorization: Bearer {{jwtToken}}
+
+###
+
+DELETE {{rootURL}}/api/enrolments/1
+Authorization: Bearer {{jwtToken}}
+
+###
+
+# RESULTS
+
+GET {{rootURL}}/api/events/1/results
+Accept: application/json
+
+###
+
+GET {{rootURL}}/api/events/1/results?categoryId=1
+Accept: application/json
+
+###
+
+POST {{rootURL}}/api/results
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "enrolmentId": 1,
+  "finishTime": "01:25:30",
+  "position": 1
+}
+
+###
+
+PUT {{rootURL}}/api/results/1
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "finishTime": "01:24:50",
+  "position": 1,
+  "status": "Verified"
+}
