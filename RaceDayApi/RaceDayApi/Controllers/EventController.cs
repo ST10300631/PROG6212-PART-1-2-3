@@ -55,6 +55,27 @@ namespace RaceDayApi.Controllers
         }
 
 
+        // POST: Add Update Event
+        [HttpPut("{id}")]
+        public IActionResult UpdateEvent(int id, Event updatedEvent)
+        {
+            var eventItem = _context.Events.Find(id);
+
+            if (eventItem == null)
+                return NotFound();
+
+            eventItem.Title = updatedEvent.Title;
+            eventItem.Location = updatedEvent.Location;
+            eventItem.StartDate = updatedEvent.StartDate;
+            eventItem.EndDate = updatedEvent.EndDate;
+            eventItem.Description = updatedEvent.Description;
+
+            _context.SaveChanges();
+
+            return Ok(eventItem);
+        }
+
+
 
     }
 
