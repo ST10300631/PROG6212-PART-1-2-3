@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using RaceDayApi.Data;
 using RaceDayApi.Models;
 
 namespace RaceDayApi.Controllers
@@ -9,36 +8,25 @@ namespace RaceDayApi.Controllers
     [Route("api/auth")]
     public class AuthController : ControllerBase
     {
+        private readonly AppDbContext _context;
+
+        public AuthController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpPost("register")]
-        [AllowAnonymous]
         public IActionResult Register([FromBody] RegisterDto model)
         {
-            // Register user
+            // Example: save a participant/user
+
+            // _context.Participants.Add(participant);
+            // _context.SaveChanges();
+
             return StatusCode(201, new
             {
                 token = "jwt-token",
                 user = model
-            });
-        }
-
-        [HttpPost("login")]
-        [AllowAnonymous]
-        public IActionResult Login([FromBody] LoginDto model)
-        {
-            return Ok(new
-            {
-                token = "jwt-token",
-                user = model.Email
-            });
-        }
-
-        [HttpPost("logout")]
-        [Authorize]
-        public IActionResult Logout()
-        {
-            return Ok(new
-            {
-                message = "Successfully logged out"
             });
         }
     }
