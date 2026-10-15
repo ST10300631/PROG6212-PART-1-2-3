@@ -1,61 +1,95 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+    using RaceDayApi.Data;
+    using RaceDayApi.Models;
 
-namespace RaceDayApi.Models.Controllers
-{
-    [ApiController]
-    [Route("api")]
-    public class CategoriesController : ControllerBase
+    namespace RaceDayApi.Controllers
     {
-        // GET: /api/events/{eventId}/categories
-        [HttpGet("Event/{EventId}/Categories")]
-        [AllowAnonymous]
-        public IActionResult GetCategories(int eventId)
+        [ApiController]
+        [Route("api")]
+        public class CategoriesController : ControllerBase
         {
-            return Ok(new[]
+            private readonly AppDbContext _context;
+
+            public CategoriesController(AppDbContext context)
             {
-                new
+                _context = context;
+            }
+
+            // GET: /api/events/{eventId}/categories
+            [HttpGet("events/{eventId}/categories")]
+            [AllowAnonymous]
+            public IActionResult GetCategories(int eventId)
+            {
+                var categories = _context.Categories
+                    .Where(c => c.EventId == eventId)
+                    .ToList();
+
+                return Ok(categories);
+            }
+
+            // POST: /api/events/{eventId}/categories
+            [HttpPost("events/{eventId}/categories")]
+            [Authorize(Roles = "Organiser")]
+            public IActionResult AddCategory(
+                int eventId,
+                [FromBody] CreateCategoryDto model)
+            {
+                var category = new Category
                 {
-                    Id = 1,
-                    Name = "5km Race",
-                    DistanceKm = 5,
-                    EntryFee = 100
-                }
-            });
-        }
+                    EventId = eventId,
+                    Name = model.Name,
+                    DistanceKm = (decimal?)model.DistanceKm,
+                    EntryFee = model.EntryFee
+                };
 
-        // POST: /api/Events/{EventId}/Categories
-        [HttpPost("Events/{EventId}/Categories")]
-        [Authorize(Roles = "Organiser")]
-        public IActionResult AddCategory(
-            int eventId,
-            [FromBody] CreateCategoryDto model)
-        {
-            return StatusCode(201, model);
-        }
+                _context.Categories.Add(category);
+                _context.SaveChanges();
 
-        // PUT: /api/categories/{id}
-        [HttpPut("Categories/{id}")]
-        [Authorize(Roles = "Organiser")]
-        public IActionResult UpdateCategory(
-            int id,
-            [FromBody] UpdateCategoryDto model)
-        {
-            return Ok(new
+                return CreatedAtAction(
+                    nameof(GetCategories),
+                    new { eventId },
+                    category);
+            }
+
+            // PUT: /api/categories/{id}
+            [HttpPut("categories/{id}")]
+            [Authorize(Roles = "Organiser")]
+            public IActionResult UpdateCategory(
+                int id,
+                [FromBody] UpdateCategoryDto model)
             {
-                updatedCategory = model
-            });
-        }
+                var category = _context.Categories.Find(id);
 
-        // DELETE: /api/categories/{id}
-        [HttpDelete("Categories/{id}")]
-        [Authorize(Roles = "Organiser")]
-        public IActionResult DeleteCategory(int id)
-        {
-            return Ok(new
+                if (category == null)
+                    return NotFound();
+
+                category.Name = model.Name;
+            category.DistanceKm = (decimal?)model.DistanceKm;
+                category.EntryFee = model.EntryFee;
+
+                _context.SaveChanges();
+
+                return Ok(category);
+            }
+
+            // DELETE: /api/categories/{id}
+            [HttpDelete("categories/{id}")]
+            [Authorize(Roles = "Organiser")]
+            public IActionResult DeleteCategory(int id)
             {
-                message = $"Category {id} removed successfully"
-            });
+                var category = _context.Categories.Find(id);
+
+                if (category == null)
+                    return NotFound();
+
+                _context.Categories.Remove(category);
+                _context.SaveChanges();
+
+                return Ok(new
+                {
+                    message = $"Category {id} removed successfully"
+                });
+            }
         }
     }
-}
