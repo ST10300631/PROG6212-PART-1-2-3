@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\RaceDayApi",
+    "\\RaceDayApi\\RaceDayApi",
+    "\\RaceDayApi\\RaceDayApi\\Data"
   ],
-  "SelectedNode": "\\PROG6212-PART-1-2-3.slnx",
+  "SelectedNode": "\\RaceDayApi\\RaceDayApi.sln",
   "PreviewInSolutionExplorer": false
 }

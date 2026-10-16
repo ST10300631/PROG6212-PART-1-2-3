@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using CourseRegistrationSystem.Api.Data;
 using Microsoft.EntityFrameworkCore;
+using RaceDayApi.Data;
 
 namespace RaceDayApi
+
 {
     public class Program
     {
@@ -61,6 +62,13 @@ namespace RaceDayApi
             app.MapControllers();
 
             app.Run();
-        }
+
+        
+
     }
+       
+    }
+
+  
+
 }

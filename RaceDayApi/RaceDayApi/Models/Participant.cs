@@ -1,6 +1,10 @@
 ﻿
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace RaceDayApi.Models
 {
+
+    [Table("Participants")]
     public class Participant
     {
       

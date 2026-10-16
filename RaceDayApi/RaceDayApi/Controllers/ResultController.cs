@@ -1,51 +1,76 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RaceDayApi.Data;
 using RaceDayApi.Models;
 
-namespace RaceDayApi.Models.Controllers
+namespace RaceDayApi.Controllers
 {
     [ApiController]
     [Route("api")]
     public class ResultsController : ControllerBase
     {
-        // GET: /api/events/{eventId}/results
-        [HttpGet("Event/{EventId}/Result")]
-        [AllowAnonymous]
-        public IActionResult GetResults(
-            int EventId,
-            int? CategoryId)
+        private readonly AppDbContext _context;
+
+        public ResultsController(AppDbContext context)
         {
-            return Ok(new[]
+            _context = context;
+        }
+
+        // GET: /api/events/{eventId}/results
+        [HttpGet("events/{EventId}/results")]
+        [AllowAnonymous]
+        public IActionResult GetResults(int eventId, int? categoryId)
+        {
+            var results = _context.Results
+                .Where(r => r.EventId == eventId);
+
+            if (categoryId.HasValue)
             {
-                new
-                {
-                    Rank = 1,
-                    Name = "John Doe",
-                    Time = "00:18:34"
-                }
-            });
+                results = results.Where(r => r.CategoryId == categoryId.Value);
+            }
+
+            return Ok(results.ToList());
         }
 
         // POST: /api/results
-        [HttpPost("Result")]
+        [HttpPost("results")]
         [Authorize(Roles = "Organiser")]
-        public IActionResult AddResult(
-            [FromBody] CreateResultDto model)
+        public IActionResult AddResult([FromBody] CreateResultDto model)
         {
-            return StatusCode(201, model);
+            var result = new Result
+            {
+                EnrolmentId = model.EnrolmentId,
+                FinishTime = model.FinishTime,
+                Position = model.Position
+            };
+
+            _context.Results.Add(result);
+            _context.SaveChanges();
+
+            return CreatedAtAction(
+                nameof(GetResults),
+                new { eventId = result.EventId },
+                result);
         }
 
         // PUT: /api/results/{id}
-        [HttpPut("Result/{id}")]
+        [HttpPut("results/{id}")]
         [Authorize(Roles = "Organiser")]
         public IActionResult UpdateResult(
             int id,
             [FromBody] UpdateResultDto model)
         {
-            return Ok(new
-            {
-                UpdatedResult = model
-            });
+            var result = _context.Results.Find(id);
+
+            if (result == null)
+                return NotFound();
+
+            result.FinishTime = model.FinishTime;
+            result.Position = model.Position;
+
+            _context.SaveChanges();
+
+            return Ok(result);
         }
     }
 }

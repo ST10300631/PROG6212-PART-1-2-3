@@ -2,9 +2,11 @@
 using System.Data;
 using System.Security.Principal;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RaceDayApi.Models
 {
+    [Table("Enrollment")]
     public class Enrollment
     {
 

@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RaceDayApi.Models;
-
-namespace RaceDayApi.Controllers
-{
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
-    using RaceDayApi.Data;
-    using RaceDayApi.Models;
+using RaceDayApi.Data;
+    
 
     namespace RaceDayApi.Controllers
     {
@@ -54,7 +49,7 @@ namespace RaceDayApi.Controllers
                 }
 
                 participant.FirstName = dto.Name;
-                participant.PhoneNumber = long.Parse(dto.Phone);
+                participant.PhoneNumber = (int)long.Parse(dto.Phone);
 
                 _context.SaveChanges();
 
@@ -66,7 +61,7 @@ namespace RaceDayApi.Controllers
         }
     }
 
-}
-}
+
+
 
 

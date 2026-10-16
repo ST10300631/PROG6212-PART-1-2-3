@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RaceDayApi.Models
 {
+    [Table("Entries")]
     public class Entry
     {
        
@@ -20,7 +21,8 @@ namespace RaceDayApi.Models
 
      
         public int? BibNumber { get; set; }
-
-      
+        public int EventId { get; internal set; }
+        public string? EmergencyDetails { get; internal set; }
+        public string? Status { get; internal set; }
     }
 }

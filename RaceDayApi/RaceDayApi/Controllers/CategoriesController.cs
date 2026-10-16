@@ -39,7 +39,7 @@ using Microsoft.AspNetCore.Mvc;
                 {
                     EventId = eventId,
                     Name = model.Name,
-                    DistanceKm = (decimal?)model.DistanceKm,
+                    DistanceKm = (decimal)(decimal?)model.DistanceKm,
                     EntryFee = model.EntryFee
                 };
 
@@ -65,7 +65,7 @@ using Microsoft.AspNetCore.Mvc;
                     return NotFound();
 
                 category.Name = model.Name;
-            category.DistanceKm = (decimal?)model.DistanceKm;
+            category.DistanceKm = (decimal)(decimal?)model.DistanceKm;
                 category.EntryFee = model.EntryFee;
 
                 _context.SaveChanges();

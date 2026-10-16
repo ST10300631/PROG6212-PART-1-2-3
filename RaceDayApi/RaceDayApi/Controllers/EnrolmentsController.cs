@@ -1,64 +1,83 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RaceDayApi.Data;
+using RaceDayApi.Models;
 
-namespace RaceDayApi.Models.Controllers
+namespace RaceDayApi.Controllers
 {
     [ApiController]
-    [Route("api/Enrolments")]
+    [Route("api/enrolments")]
     [Authorize]
     public class EnrolmentsController : ControllerBase
     {
-        // POST: /api/Enrolments
-        [HttpPost]
-        [Authorize(Roles = "Participant")]
-        public IActionResult Enrol(
-            [FromBody] CreateEnrolmentDto model)
+        private readonly AppDbContext _context;
+
+        public EnrolmentsController(AppDbContext context)
         {
-            return StatusCode(201, new
-            {
-                enrolmentId = 1,
-                status = "Confirmed"
-            });
+            _context = context;
         }
 
-        // GET: /api/Enrolments/my-history
-        [HttpGet("Result")]
+        // POST: /api/enrolments
+        [HttpPost]
+        [Authorize(Roles = "Participant")]
+        public IActionResult Enrol([FromBody] CreateEnrolmentDto model)
+        {
+            var enrolment = new Entry
+            {
+                EventId = model.EventId,
+                CategoryId = model.CategoryId,
+                EmergencyDetails = model.EmergencyDetails,
+                Status = "Confirmed"
+            };
+
+            _context.Entries.Add(enrolment);
+            _context.SaveChanges();
+
+            return StatusCode(201, enrolment);
+        }
+
+        // GET: /api/enrolments/my-history
+        [HttpGet("my-history")]
         [Authorize(Roles = "Participant")]
         public IActionResult MyHistory()
         {
-            return Ok(new[]
-            {
-                new
-                {
-                    Title = "Soweto 10K Classi",
-                    Category = "10km",
-                    Status = "Completed"
-                }
-            });
+            var history = _context.Entries.ToList();
+
+            return Ok(history);
         }
 
         // GET: /api/events/{eventId}/enrolments
-        [HttpGet("/api/events/{EventId}/Enrolments")]
+        [HttpGet("/api/events/{eventId}/enrolments")]
         [Authorize(Roles = "Organiser")]
         public IActionResult EventEnrolments(int eventId)
         {
-            return Ok(new[]
-            {
-                new
-                {
-                    Participant = "John Doe",
-                    Category = "5km"
-                }
-            });
+            var enrolments = _context.Entries
+                .Where(e => e.EventId == eventId)
+                .ToList();
+
+            return Ok(enrolments);
         }
 
         // DELETE: /api/enrolments/{id}
         [HttpDelete("{id}")]
         public IActionResult CancelEnrolment(int id)
         {
+            var enrolment = _context.Entries.Find(id);
+
+            if (enrolment == null)
+            {
+                return NotFound(new
+                {
+                    message = "Enrolment not found."
+                });
+            }
+
+            _context.Entries.Remove(enrolment);
+            _context.SaveChanges();
+
             return Ok(new
             {
-                message = "Enrolment cancelled"
+                message = "Enrolment cancelled successfully."
             });
         }
     }

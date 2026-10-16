@@ -1,5 +1,8 @@
-﻿namespace RaceDayApi.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RaceDayApi.Models
 {
+    [Table("Events")]
     public class Event
     {
    
