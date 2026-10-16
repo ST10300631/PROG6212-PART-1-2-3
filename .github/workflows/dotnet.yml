@@ -1,3 +1,5 @@
+# This is a basic workflow to help you get started with Actions
+
 name: Build and Test
 
 on:
@@ -20,7 +22,11 @@ jobs:
         dotnet-version: '8.0' # Change to your target .NET version if needed
 
     - name: Restore dependencies
-      run: dotnet restore RaceDayApi/RaceDayApi/RaceDayApi.csproj
+      run: |
+        dotnet restore RaceDayApi/RaceDayApi/RaceDayApi.csproj
+        dotnet restore RaceDayApi/RaceDayApi.Test/RaceDayApi.Test.csproj
 
-    - name: Build project
-      run: dotnet build RaceDayApi/RaceDayApi/RaceDayApi.csproj --no-restore
+    - name: Build projects
+      run: |
+        dotnet build RaceDayApi/RaceDayApi/RaceDayApi.csproj --no-restore
+        dotnet build RaceDayApi/RaceDayApi.Test/RaceDayApi.Test.csproj --no-restore
