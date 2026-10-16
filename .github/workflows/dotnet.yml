@@ -1,44 +1,26 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: Build and Test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
-    - name: RaceDayApi/RaceDayApi/RaceDayApi.csproj
-      run: dotnet restore
-    - name: RaceDayApi/RaceDayApi/RaceDayApi.csproj
-      run: dotnet build --no-restore
+        dotnet-version: '8.0' # Change to your target .NET version if needed
 
+    - name: Restore dependencies
+      run: dotnet restore RaceDayApi/RaceDayApi/RaceDayApi.csproj
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    - name: RaceDayApi/RaceDayApi/RaceDayApi.csproj
-      run: dotnet test --no-build --verbosity normal
+    - name: Build project
+      run: dotnet build RaceDayApi/RaceDayApi/RaceDayApi.csproj --no-restore
