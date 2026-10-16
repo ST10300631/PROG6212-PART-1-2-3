@@ -20,9 +20,9 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: RaceDayApi/RaceDayApi.sln
+    - name: RaceDayApi/RaceDayApi/RaceDayApi.csproj
       run: dotnet restore
-    - name: RaceDayApi/RaceDayApi.sln
+    - name: RaceDayApi/RaceDayApi/RaceDayApi.csproj
       run: dotnet build --no-restore
-    - name: RaceDayApi/RaceDayApi.sln
+    - name: RaceDayApi/RaceDayApi/RaceDayApi.csproj
       run: dotnet test --no-build --verbosity normal
