@@ -27,6 +27,14 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 
 
 ```
+
+## API EndPoint Plan
+<img width="1600" height="461" alt="API Endpoint Plan - Part 1 Auth, Users   Events jpeg" src="https://github.com/user-attachments/assets/86de517d-f733-41ea-bbf6-00a4e225f075" />
+
+
+<img width="1600" height="457" alt="API Endpoint Plan - Part 2 Categories, Enrolments   Results" src="https://github.com/user-attachments/assets/7571d7a9-f6fe-451b-886b-00e88e9d3d05" />
+
+
 ## CI/CD Working
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aca4d4f7-d74e-434c-a387-a7073127b243" />
 
