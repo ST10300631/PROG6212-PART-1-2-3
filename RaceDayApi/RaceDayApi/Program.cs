@@ -3,6 +3,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using RaceDayApi.Data;
+using Microsoft.OpenApi.Models;
+using RaceDayApi.Services;
 
 namespace RaceDayApi
 
@@ -25,6 +27,7 @@ namespace RaceDayApi
 
             var jwtKey = builder.Configuration["Jwt:Key"]
              ?? throw new InvalidOperationException("JWT Key not configured.");
+            builder.Services.AddScoped<JwtService>();
 
             builder.Services.AddAuthentication("Bearer")
                 .AddJwtBearer(options =>
@@ -41,6 +44,45 @@ namespace RaceDayApi
                                     Encoding.UTF8.GetBytes(jwtKey))
                         };
                 });
+
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Race Event Management API",
+                    Version = "v1",
+                    Description = "API for managing events, categories, enrolments and results."
+                });
+
+                options.AddSecurityDefinition("Bearer",
+                    new OpenApiSecurityScheme
+                    {
+                        Name = "Authorization",
+                        Type = SecuritySchemeType.ApiKey,
+                        Scheme = "Bearer",
+                        BearerFormat = "JWT",
+                        In = ParameterLocation.Header,
+                        Description =
+                        "Enter JWT Token: Bearer {your token}"
+                    });
+
+                options.AddSecurityRequirement(
+                    new OpenApiSecurityRequirement
+                    {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference =
+                    new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                },
+                Array.Empty<string>()
+            }
+                    });
+            });
 
             builder.Services.AddAuthorization();
 

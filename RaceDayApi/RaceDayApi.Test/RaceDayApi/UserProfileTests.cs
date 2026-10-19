@@ -2,26 +2,26 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
-using RaceDayApi.Tests; // Ensure this matches where ApiTestBase lives
-using Xunit;
+using NUnit.Framework;
 
-namespace RaceDayApi.Test
+namespace RaceDayApi.Tests
 {
+    [TestFixture]
     public class UserProfileTests : ApiTestBase
     {
-        public UserProfileTests(WebApplicationFactory<Program> factory) : base(factory) { }
+       
 
-        [Fact]
+        [Test]
         public async Task GetProfile_WhenUnauthenticated_Returns401Unauthorized()
         {
             // Act
             var response = await Client.GetAsync("/api/users/profile");
 
             // Assert
-            Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
+            NUnit.Framework.Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
         }
 
-        [Fact]
+        [Test]
         public async Task GetProfile_WhenAuthenticated_Returns200OKWithProfile()
         {
             // Arrange
@@ -31,10 +31,10 @@ namespace RaceDayApi.Test
             var response = await Client.GetAsync("/api/users/profile");
 
             // Assert
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            NUnit.Framework.Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
 
-        [Fact]
+        [Test]
         public async Task UpdateProfile_WithValidData_Returns200OK()
         {
             // Arrange
@@ -45,15 +45,13 @@ namespace RaceDayApi.Test
                 phone = "0987654321",
                 emergencyContact = "Jane Doe"
             };
-            var content = CreateJsonContent(updatePayload); // Handled by ApiTestBase
+            var content = CreateJsonContent(updatePayload);
 
             // Act
             var response = await Client.PutAsync("/api/users/profile", content);
 
             // Assert
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            NUnit.Framework.Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
 }
-
-

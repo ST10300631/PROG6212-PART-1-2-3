@@ -1,17 +1,14 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
-using RaceDayApi.Tests; // Ensure this matches your ApiTestBase namespace
-using Xunit;
+using NUnit.Framework;
 
-namespace RaceDayApi.Test
+namespace RaceDayApi.Tests
 {
+    [TestFixture]
     public class AuthTests : ApiTestBase
     {
-        // Use : base(factory) to pass the test server to the base setup
-        public AuthTests(WebApplicationFactory<Program> factory) : base(factory) { }
-
-        [Fact]
+        [Test]
         public async Task Register_WithValidData_Returns201Created()
         {
             // Arrange
@@ -23,16 +20,20 @@ namespace RaceDayApi.Test
                 role = "Organiser",
                 phone = "1234567890"
             };
-            var content = CreateJsonContent(registerPayload); // Inherited helper
+            var content = CreateJsonContent(registerPayload);
 
             // Act
-            var response = await Client.PostAsync("/api/auth/register", content); // Uses inherited 'Client'
+            var response = await Client.PostAsync("/api/auth/register", content);
 
             // Assert
-            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+            NUnit.Framework.Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            NUnit.Framework.Assert.That(responseString, Does.Contain("token"));
+            NUnit.Framework.Assert.That(responseString, Does.Contain("user"));
         }
 
-        [Fact]
+        [Test]
         public async Task Login_WithValidCredentials_Returns200OK()
         {
             // Arrange
@@ -47,7 +48,7 @@ namespace RaceDayApi.Test
             var response = await Client.PostAsync("/api/auth/login", content);
 
             // Assert
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            NUnit.Framework.Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
 }

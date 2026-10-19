@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RaceDayApi.Data;
+using Microsoft.EntityFrameworkCore;
 using RaceDayApi.Models;
+using RaceDayApi.Data;
+using System.Security.Claims;
 
-namespace RaceDayApi.Controllers
+namespace RaceEventAPI.Controllers
 {
-    [ApiController]
     [Route("api/enrolments")]
-    [Authorize]
+    [ApiController]
     public class EnrolmentsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -17,67 +18,69 @@ namespace RaceDayApi.Controllers
             _context = context;
         }
 
-        // POST: /api/enrolments
-        [HttpPost]
         [Authorize(Roles = "Participant")]
-        public IActionResult Enrol([FromBody] CreateEnrolmentDto model)
+        [HttpPost]
+        public async Task<IActionResult> Enrol(
+            Enrolment enrolment)
         {
-            var enrolment = new Entry
-            {
-                EventId = model.EventId,
-                CategoryId = model.CategoryId,
-                EmergencyDetails = model.EmergencyDetails,
-                Status = "Confirmed"
-            };
+            _context.Enrolments.Add(enrolment);
 
-            _context.Entries.Add(enrolment);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return StatusCode(201, enrolment);
         }
 
-        // GET: /api/enrolments/my-history
-        [HttpGet("my-history")]
         [Authorize(Roles = "Participant")]
-        public IActionResult MyHistory()
+        [HttpGet("my-history")]
+        public async Task<IActionResult> MyHistory()
         {
-            var history = _context.Entries.ToList();
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            var userId = int.Parse(userIdClaim.Value);
+
+            var history = await _context.Enrolments
+                .Where(x => x.UserId == userId)
+                .Include(x => x.Category)
+                .ToListAsync();
 
             return Ok(history);
         }
 
-        // GET: /api/events/{eventId}/enrolments
-        [HttpGet("/api/events/{eventId}/enrolments")]
         [Authorize(Roles = "Organiser")]
-        public IActionResult EventEnrolments(int eventId)
+        [HttpGet("/api/events/{eventId}/enrolments")]
+        public async Task<IActionResult> EventEntries(int eventId)
         {
-            var enrolments = _context.Entries
-                .Where(e => e.EventId == eventId)
-                .ToList();
+            var entries = await _context.Enrolments
+                .Include(x => x.User)
+                .Include(x => x.Category)
+                .Where(x => x.Category.EventId == eventId)
+                .ToListAsync();
 
-            return Ok(enrolments);
+            return Ok(entries);
         }
 
-        // DELETE: /api/enrolments/{id}
+        [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult CancelEnrolment(int id)
+        public async Task<IActionResult> Cancel(int id)
         {
-            var enrolment = _context.Entries.Find(id);
+            var enrolment =
+                await _context.Enrolments.FindAsync(id);
 
             if (enrolment == null)
-            {
-                return NotFound(new
-                {
-                    message = "Enrolment not found."
-                });
-            }
+                return NotFound();
 
-            _context.Entries.Remove(enrolment);
-            _context.SaveChanges();
+            _context.Enrolments.Remove(enrolment);
+
+            await _context.SaveChangesAsync();
 
             return Ok(new
             {
-                message = "Enrolment cancelled successfully."
+                message = "Enrolment cancelled"
             });
         }
     }

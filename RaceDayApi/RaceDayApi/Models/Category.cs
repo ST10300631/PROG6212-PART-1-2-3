@@ -1,22 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using RaceDayApi.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace RaceDayApi.Models
+public class Category
 {
-    [Table("Categories")]
-    public class Category
-    {
-      
-        public int CategoryId { get; set; }
-       
-        public int? EventId { get; set; }
-       
-        public string? Name { get; set; }
+    public int Id { get; set; }
 
-        public decimal DistanceKm { get; set; }
+    [Required]
+    public  string Name { get; set; } = null!;
 
-        public decimal EntryFee { get; set; }
+    public  string Description { get; set; } = null!;
 
-        public TimeSpan? StartTime { get; set; }
-    }
+    public decimal EntryFee { get; set; }
+
+    public int EventId { get; set; }
+
+    public  Event Event { get; set; } = null!;
+
+    public  ICollection<Enrolment> Enrolments { get; set; } = null!;
 }

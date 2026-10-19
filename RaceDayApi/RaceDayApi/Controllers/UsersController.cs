@@ -1,67 +1,61 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RaceDayApi.Models;
+using System.Security.Claims;
 using RaceDayApi.Data;
-    
+using RaceDayApi.DTOs;
 
-    namespace RaceDayApi.Controllers
+namespace RaceDayApi.Controllers
+{
+    [Route("api/users")]
+    [ApiController]
+    [Authorize]
+    public class UsersController : ControllerBase
     {
-        [ApiController]
-        [Route("api/users")]
-        [Authorize]
-        public class UsersController : ControllerBase
+        private readonly AppDbContext _context;
+
+        public UsersController(AppDbContext context)
         {
-            private readonly AppDbContext _context;
+            _context = context;
+        }
 
-            public UsersController(AppDbContext context)
+        [HttpGet("profile")]
+        public IActionResult GetProfile()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (userIdClaim == null)
             {
-                _context = context;
+                return Unauthorized();
             }
 
-            [HttpGet("profile")]
-            public IActionResult GetProfile()
+            var userId = int.Parse(userIdClaim.Value);
+
+            var user = _context.Users.Find(userId);
+
+            return Ok(user);
+        }
+
+        [HttpPut("profile")]
+        public async Task<IActionResult> UpdateProfile(
+            UpdateProfileDto dto)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (userIdClaim == null)
             {
-                // Example: return first participant
-                var participant = _context.Participants.FirstOrDefault();
-
-                if (participant == null)
-                {
-                    return NotFound(new
-                    {
-                        message = "No participant found."
-                    });
-                }
-
-                return Ok(participant);
+                return Unauthorized();
             }
 
-            [HttpPut("profile")]
-            public IActionResult UpdateProfile(UpdateProfileDto dto)
-            {
-                var participant = _context.Participants.FirstOrDefault();
+            var userId = int.Parse(userIdClaim.Value);
 
-                if (participant == null)
-                {
-                    return NotFound(new
-                    {
-                        message = "No participant found."
-                    });
-                }
+            var user = await _context.Users.FindAsync(userId);
 
-                participant.FirstName = dto.Name;
-                participant.PhoneNumber = (int)long.Parse(dto.Phone);
+            user!.Name = dto.Name?? user!.Name;
+            user.Phone = dto.Phone?? user.Phone;
 
-                _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
-                return Ok(new
-                {
-                    updatedUser = participant
-                });
-            }
+            return Ok(user);
         }
     }
-
-
-
-
-
+}

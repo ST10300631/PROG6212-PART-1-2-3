@@ -1,29 +1,31 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RaceDayApi.Models
 {
-    [Table("Events")]
     public class Event
     {
-   
-            public int EventId { get; set; }
+        public int Id { get; set; }
 
-            public int? OrganiserId { get; set; }
+        [Required]
+        public string Name { get; set; } = null!;
 
-            public string Title { get; set; } = string.Empty;
+        [Required]
+        public string Description { get; set; } = null!;
 
-            public string Location { get; set; } = string.Empty;
+        public DateTime Date { get; set; }
 
-            public DateTime StartDate { get; set; }
+        [Required]
+        public string Location { get; set; } = null!;
 
-            public DateTime EndDate { get; set; }
+        public double Distance { get; set; }
 
-            public string? Description { get; set; }
+        [Required]
+        public string EventType { get; set; } = null!; // Run, Walk, Cycle
 
-            
-        }
+        public int OrganiserId { get; set; }
+
+        public User Organiser { get; set; } = null!;
+
+        public ICollection<Category> Categories { get; set; } = null!;
     }
-
-
-
-
+}

@@ -2,8 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\RaceDayApi",
-    "\\RaceDayApi\\RaceDayApi",
-    "\\RaceDayApi\\RaceDayApi\\Data"
+    "\\RaceDayApi\\RaceDayApi"
   ],
   "SelectedNode": "\\RaceDayApi\\RaceDayApi.sln",
   "PreviewInSolutionExplorer": false

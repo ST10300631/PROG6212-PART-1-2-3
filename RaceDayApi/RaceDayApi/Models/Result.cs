@@ -1,27 +1,14 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Principal;
-
-namespace RaceDayApi.Models
+﻿public class Result
 {
-    [Table("Results")]
-    public class Result
-    {
-        
-        public int ResultId { get; set; }
+    public int Id { get; set; }
 
-        public int? EntryId { get; set; }
+    public int EnrolmentId { get; set; }
 
-        public TimeSpan? FinishTime { get; set; }
+    public   Enrolment? Enrolment { get; set; } 
 
-        public int? OverallRank { get; set; }
+    public TimeSpan FinishTime { get; set; }
 
-        public int? CategoryRank { get; set; }
+    public int Position { get; set; }
 
-        public string? Status { get; set; }
-        public int EnrolmentId { get; internal set; }
-        public int Position { get; internal set; }
-        public int EventId { get; internal set; }
-        public int CategoryId { get; internal set; }
-    }
+    public required String Status { get; set; } 
 }
