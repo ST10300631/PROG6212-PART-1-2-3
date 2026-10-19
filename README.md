@@ -42,7 +42,10 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 
 
 ## Proof the database stores data
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d7177532-2c4d-4fc5-98ab-9e920e18236b" />
+<img width="1476" height="825" alt="Screenshot 2026-10-19 112118" src="https://github.com/user-attachments/assets/c8ad93a4-186a-4567-afb7-15e8502412ef" />
+
+**Event**
+<img width="1476" height="833" alt="Screenshot 2026-10-19 112020" src="https://github.com/user-attachments/assets/5a31b832-2b0c-44fe-8f4c-86f41761882f" />
 
 
 ## YouTube Link
