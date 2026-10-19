@@ -39,7 +39,7 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aca4d4f7-d74e-434c-a387-a7073127b243" />
 
 ## I Give up on unit testing
-<img width="1920" height="1080" alt="Screenshot (1681)" src="https://github.com/user-attachments/assets/5d9bb404-cadb-4f2a-a090-f2fe5e3f07f8" />
+
 
 ## Proof the database stores data
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d7177532-2c4d-4fc5-98ab-9e920e18236b" />
