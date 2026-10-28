@@ -55,5 +55,5 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 
 
 ## YouTube Link
-https://youtu.be/mjz6vDi2PwI?si=aXNp0HorevJAPZN6
+
 
