@@ -79,5 +79,14 @@ namespace RaceDayApi.Controllers
                 message = "Category deleted"
             });
         }
+
+        // GET: api/categories
+        [HttpGet("api/categories")]
+        public async Task<IActionResult> GetAllCategories()
+        {
+            var categories = await _context.Categories.ToListAsync();
+            return Ok(categories);
+        }
+
     }
 }

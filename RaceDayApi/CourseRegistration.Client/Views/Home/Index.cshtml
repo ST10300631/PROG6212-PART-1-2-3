@@ -1,0 +1,22 @@
+﻿@model List<RaceDaySystem.Client.Models.DTOs.CreateEventDto>
+
+<h2>Available Race Events</h2>
+
+@if (Model != null && Model.Any())
+{
+    @foreach (var item in Model)
+    {
+        <div class="event-card" style="margin-bottom: 20px; padding: 18px; border: 1px solid #ccc;">
+            <h3>@item.Name</h3>
+            <p><strong>Type:</strong> @item.EventType</p>
+            <p><strong>Description:</strong> @item.Description</p>
+            <p><strong>Date:</strong> @item.Date.ToShortDateString()</p>
+            <p><strong>Location:</strong> @item.Location</p>
+            <p><strong>Distance:</strong> @item.Distance km</p>
+        </div>
+    }
+}
+else
+{
+    <p>No available race events found.</p>
+}

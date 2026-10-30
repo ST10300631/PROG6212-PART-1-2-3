@@ -1,0 +1,77 @@
+﻿@model RaceDaySystem.Client.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <div class="card shadow-sm border-0 p-4" style="max-width: 450px; width: 100%; border-radius: 8px;">
+
+        <!-- Header Section -->
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-dark mb-1">Login to Your Account</h2>
+            <p class="text-muted small">Access your course registration account</p>
+        </div>
+
+        <form asp-controller="Account" asp-action="Login" method="post">
+
+            <!-- Validation Summary -->
+            <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+            <!-- Email Input Field -->
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-bold text-dark small">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted">
+                        <i class="bi bi-envelope"></i>
+                    </span>
+                    <input asp-for="Email" class="form-control border-start-0 ps-0" placeholder="Enter your email address" type="email" required />
+                </div>
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <!-- Password Input Field -->
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <label asp-for="Password" class="form-label fw-bold text-dark small mb-0">Password</label>
+                    <a href="#" class="text-primary small text-decoration-none">Forgot password?</a>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted">
+                        <i class="bi bi-lock"></i>
+                    </span>
+                    <input asp-for="Password" class="form-control border-start-0 ps-0" placeholder="Enter your password" type="password" required />
+                </div>
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <!-- Role Info Banner Box -->
+            <div class="card border-0 bg-opacity-10 bg-secondary p-3 mb-4" style="border-radius: 6px; background-color: #f1f3f9;">
+                <div class="d-flex align-items-start">
+                    <div class="text-secondary me-3 mt-1">
+                        <i class="bi bi-people-fill fs-5"></i>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold text-dark mb-1 small">Role-based Access</h6>
+                        <p class="text-muted mb-0 xs-small" style="font-size: 0.8rem; line-height: 1.3;">
+                            This system is used by Students, Lecturers and Admins. Your access and features depend on your role.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Button -->
+            <button type="submit" class="btn btn-primary w-100 fw-bold py-2 d-flex justify-content-center align-items-center gap-2" style="border-radius: 6px; background-color: #0d6efd;">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+            </button>
+
+        </form>
+
+        <!-- Footer Notice Info -->
+        <div class="text-center mt-4 d-flex align-items-center justify-content-center gap-2 text-muted" style="font-size: 0.75rem;">
+            <i class="bi bi-info-circle-fill text-secondary"></i>
+            <span>This system uses session-based login. Please keep your session active while using the system.</span>
+        </div>
+
+    </div>
+</div>
