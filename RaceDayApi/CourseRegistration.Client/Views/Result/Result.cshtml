@@ -1,0 +1,67 @@
+﻿@model RaceDaySystem.Client.Models.DTOs.ResultDto
+
+@{
+    ViewData["Title"] = "Record Race Result";
+}
+
+<div class="container mt-4" style="max-width: 650px;">
+    <div class="card shadow-sm p-4" style="border-radius: 8px;">
+
+        <!-- Page Header -->
+        <div class="mb-4 border-bottom pb-2">
+            <h2 class="fw-bold text-dark mb-1">Record Race Result</h2>
+            <p class="text-muted small">Fill out the fields below to log a competitor's performance record.</p>
+        </div>
+
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+            <!-- Enrolment ID -->
+            <div class="mb-3">
+                <label asp-for="EnrolmentId" class="form-label fw-bold text-dark small">Enrolment ID</label>
+                <input asp-for="EnrolmentId" type="number" class="form-control" placeholder="e.g., 101" required />
+                <span asp-validation-for="EnrolmentId" class="text-danger small"></span>
+            </div>
+
+            <div class="row">
+                <!-- Finish Time -->
+                <div class="col-md-6 mb-3">
+                    <label asp-for="FinishTime" class="form-label fw-bold text-dark small">Finish Time</label>
+                    <input asp-for="FinishTime" type="text" class="form-control" placeholder="00:00:00" step="1" required />
+                    <span asp-validation-for="FinishTime" class="text-danger small"></span>
+                </div>
+
+                <!-- Position -->
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Position" class="form-label fw-bold text-dark small">Finishing Position</label>
+                    <input asp-for="Position" type="number" min="1" class="form-control" placeholder="e.g., 1" required />
+                    <span asp-validation-for="Position" class="text-danger small"></span>
+                </div>
+            </div>
+
+            <!-- Status -->
+            <div class="mb-4">
+                <label asp-for="Status" class="form-label fw-bold text-dark small">Status</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Finished">Finished</option>
+                    <option value="DNF">Did Not Finish (DNF)</option>
+                    <option value="DNS">Did Not Start (DNS)</option>
+                    <option value="DQ">Disqualified (DQ)</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger small"></span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-action="Index" class="btn btn-light border px-4">Cancel</a>
+                <button type="submit" class="btn btn-primary px-4" style="background-color: #0d6efd;">Save Result</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

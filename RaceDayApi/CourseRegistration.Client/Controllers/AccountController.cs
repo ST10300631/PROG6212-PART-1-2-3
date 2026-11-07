@@ -43,7 +43,7 @@ namespace RaceDaySystem.Client.Controllers
 
             // CHANGE THIS LINE RIGHT HERE:
             // This forwards the user to CategoryController's Index action
-            return RedirectToAction("Index", "Category");
+            return RedirectToAction("Index", "Home");
         }
 
 

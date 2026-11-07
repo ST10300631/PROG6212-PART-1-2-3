@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RaceDaySystem.Client.styles.css" asp-append-version="true" />
-    <!-- Fixed: Completed the absolute CDN url path for Bootstrap Icons to render correctly -->
+    <!-- Fixed: Completed the absolute CDN path for Bootstrap Icons to render correctly -->
     <link rel="stylesheet" href="https://jsdelivr.net" />
 </head>
 <body>
@@ -35,14 +35,21 @@
                             string? role = Context.Session.GetString("Role");
                         }
 
-                        <!-- Fixed: Moved role actions inside the main ul block for correct inline float behavior -->
+                        <!-- Organiser Context Links -->
                         @if (role == "Organiser")
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark fw-bold" asp-controller="Events" asp-action="Create">Create Event</a>
+                                <a class="nav-link text-dark" asp-controller="Events" asp-action="Create">Create Event</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-bold" asp-controller="Result" asp-action="Create">Record Race Result</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Result" asp-action="Result">Manage All Results</a>
                             </li>
                         }
 
+                        <!-- Participant Context Links -->
                         @if (role == "Participant")
                         {
                             <li class="nav-item">
@@ -50,6 +57,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Registrations" asp-action="MyRegistrations">My Race Entries</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-bold" asp-controller="Result" asp-action="Result">My Race Results</a>
                             </li>
                         }
                     </ul>

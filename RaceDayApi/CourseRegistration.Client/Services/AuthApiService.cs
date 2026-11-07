@@ -1,5 +1,7 @@
 ﻿using RaceDaySystem.Client.Models;
-using static System.Net.WebRequestMethods;
+using System.Net.Http;
+using System.Net.Http.Json; // Resolves compiler binding for PostAsJsonAsync extension
+using System.Threading.Tasks;
 
 namespace RaceDaySystem.Client.Services
 {
@@ -11,15 +13,19 @@ namespace RaceDaySystem.Client.Services
         {
             _http = http;
         }
+
         public async Task<LoginResponse?> LoginAsync(LoginViewModel model)
         {
-            // Change this line inside AuthApiService.cs to use the full absolute URL address path
-var response = await _http.PostAsJsonAsync("https://localhost:7142/api/auth/login", model);
+            // Use the relative path endpoint. The domain base (https://localhost:7142/) 
+            // should live exclusively inside your initialization files.
+            var response = await _http.PostAsJsonAsync("api/auth/login", model);
 
             if (!response.IsSuccessStatusCode)
+            {
                 return null;
+            }
+
             return await response.Content.ReadFromJsonAsync<LoginResponse>();
         }
-
     }
 }

@@ -3,48 +3,88 @@
   "WorkspaceRootPath": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{42F13D79-D2BE-466C-932C-81B37CB3F77F}|RaceDayApi\\RaceDayApi.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\racedayapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{42F13D79-D2BE-466C-932C-81B37CB3F77F}|RaceDayApi\\RaceDayApi.csproj|solutionrelative:racedayapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\models\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\models\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\events\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\events\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\models\\dtos\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\models\\dtos\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\services\\authapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\services\\authapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\models\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\models\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\models\\dtos\\eventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\models\\dtos\\eventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\models\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\models\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\models\\dtos\\createeventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\models\\dtos\\createeventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\controllers\\resultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\controllers\\resultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\result\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\result\\result.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\models\\dtos\\resultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\models\\dtos\\resultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\events\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\events\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|c:\\users\\student\\desktop\\prog6212-part-1-2-3\\racedayapi\\courseregistration.client\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C89B729-095F-497A-A4C7-BA4A152644FD}|CourseRegistration.Client\\RaceDaySystem.Client.csproj|solutionrelative:courseregistration.client\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,34 +94,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "RaceDayApi\\Controllers\\CategoriesController.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "RaceDayApi\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAYwFkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T13:30:43.431Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CategoryDto.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\CategoryDto.cs",
-              "RelativeDocumentMoniker": "CourseRegistration.Client\\Models\\DTOs\\CategoryDto.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\CategoryDto.cs",
-              "RelativeToolTip": "CourseRegistration.Client\\Models\\DTOs\\CategoryDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T13:19:12.285Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
@@ -99,68 +113,150 @@
               "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Program.cs",
               "RelativeDocumentMoniker": "CourseRegistration.Client\\Program.cs",
               "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Program.cs",
               "RelativeToolTip": "CourseRegistration.Client\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T13:03:41.221Z",
+              "WhenOpened": "2026-11-03T11:31:40.686Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "CourseRegistration.Client\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-30T12:56:21.181Z",
+              "DocumentIndex": 2,
+              "Title": "CategoryDto.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\CategoryDto.cs",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Models\\DTOs\\CategoryDto.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\CategoryDto.cs",
+              "RelativeToolTip": "CourseRegistration.Client\\Models\\DTOs\\CategoryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T11:23:22.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "CourseRegistration.Client\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "CourseRegistration.Client\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwC8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T12:48:25.365Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAHAAAAAAAAAAAIAwwIMAAAB5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T11:22:21.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Events\\Create.cshtml",
-              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Events\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Events\\Create.cshtml",
-              "RelativeToolTip": "CourseRegistration.Client\\Views\\Events\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-30T12:35:04.978Z",
+              "WhenOpened": "2026-11-03T11:18:36.23Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "CourseRegistration.Client\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAswEsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "AuthApiService.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Services\\AuthApiService.cs",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Services\\AuthApiService.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Services\\AuthApiService.cs",
+              "RelativeToolTip": "CourseRegistration.Client\\Services\\AuthApiService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T11:14:57.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DashboardViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\DashboardViewModel.cs",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Models\\DTOs\\DashboardViewModel.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\DashboardViewModel.cs",
+              "RelativeToolTip": "CourseRegistration.Client\\Models\\DTOs\\DashboardViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T11:12:39.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EventDto.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\EventDto.cs",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Models\\DTOs\\EventDto.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\EventDto.cs",
+              "RelativeToolTip": "CourseRegistration.Client\\Models\\DTOs\\EventDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T10:52:38.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AccessDenied.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Account\\AccessDenied.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Account\\AccessDenied.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Account\\AccessDenied.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Account\\AccessDenied.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-30T12:44:00.158Z",
+              "WhenOpened": "2026-11-03T10:28:16.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ResultController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Controllers\\ResultController.cs",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Controllers\\ResultController.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Controllers\\ResultController.cs",
+              "RelativeToolTip": "CourseRegistration.Client\\Controllers\\ResultController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAABMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T07:28:03.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Result.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Result\\Result.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Result\\Result.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Result\\Result.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Result\\Result.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T07:26:41.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T07:13:14.902Z",
               "EditorCaption": ""
             },
             {
@@ -171,49 +267,120 @@
               "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Account\\Login.cshtml",
               "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "CourseRegistration.Client\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-30T12:37:18.704Z",
+              "WhenOpened": "2026-11-03T07:20:00.046Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\LoginDto.cs",
-              "RelativeDocumentMoniker": "CourseRegistration.Client\\Models\\DTOs\\LoginDto.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\LoginDto.cs",
-              "RelativeToolTip": "CourseRegistration.Client\\Models\\DTOs\\LoginDto.cs",
+              "DocumentIndex": 13,
+              "Title": "ResultDto.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\ResultDto.cs",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Models\\DTOs\\ResultDto.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\ResultDto.cs",
+              "RelativeToolTip": "CourseRegistration.Client\\Models\\DTOs\\ResultDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T12:37:10.128Z",
+              "WhenOpened": "2026-11-03T10:11:13.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RegisterDto.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\RegisterDto.cs",
-              "RelativeDocumentMoniker": "CourseRegistration.Client\\Models\\DTOs\\RegisterDto.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\RegisterDto.cs",
-              "RelativeToolTip": "CourseRegistration.Client\\Models\\DTOs\\RegisterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "CourseRegistration.Client\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAAFUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T12:37:05.367Z",
+              "WhenOpened": "2026-11-03T07:37:56.335Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CreateEventDto.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\CreateEventDto.cs",
-              "RelativeDocumentMoniker": "CourseRegistration.Client\\Models\\DTOs\\CreateEventDto.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Models\\DTOs\\CreateEventDto.cs",
-              "RelativeToolTip": "CourseRegistration.Client\\Models\\DTOs\\CreateEventDto.cs",
+              "DocumentIndex": 15,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Events\\Create.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Events\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Events\\Create.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Events\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T07:12:01.835Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Category\\Index.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Category\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Category\\Index.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Category\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T07:12:11.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T07:13:32.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T07:13:06.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T07:13:04.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "CourseRegistration.Client\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-03T07:13:00.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "CourseRegistration.Client\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "CourseRegistration.Client\\Controllers\\CategoryController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T12:36:51.951Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-03T07:12:28.354Z"
             }
           ]
         }

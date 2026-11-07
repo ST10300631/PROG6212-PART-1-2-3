@@ -2,27 +2,10 @@ using RaceDaySystem.Client.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add standard MVC controller services to the container
 builder.Services.AddControllersWithViews();
 
-// 1. Configure the Auth service with your API Base Address URL
-builder.Services.AddHttpClient<RaceDaySystem.Client.Services.AuthApiService>(client =>
-{
-    // Replace with your EXACT backend API running port (e.g., 7123, 5001, etc.)
-    client.BaseAddress = new Uri("https://localhost:7142/");
-});
-
-// 2. Configure the Race Day service with the same API Base Address URL
-builder.Services.AddHttpClient<RaceDaySystem.Client.Services.RaceDayApiService>(client =>
-{
-    client.BaseAddress = new Uri("https://localhost:7142/");
-});
-
-
-//Dependency injection
-builder.Services.AddScoped<RaceDayApiService>();
-
-//Enable session services
+// Enable distributed cache and session middleware configuration profiles
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -31,29 +14,39 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// Register AuthApiService for dependency injection
-builder.Services.AddScoped<RaceDaySystem.Client.Services.AuthApiService>();
+// =========================================================================
+// CORRECTION: Only use AddHttpClient. (REMOVED AddScoped overrides below)
+// =========================================================================
 
-// Register the named HttpClient for your Web API backend
-builder.Services.AddHttpClient("RaceDayApi", client =>
+// 1. Configure the Auth service with your API Base Address URL
+builder.Services.AddHttpClient<AuthApiService>(client =>
 {
-    // REPLACE 7123 with the actual port number your RaceDayApi project uses!
     client.BaseAddress = new Uri("https://localhost:7142/");
-
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 
+// 2. Configure the Race Day service with the same API Base Address URL
+builder.Services.AddHttpClient<RaceDayApiService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7142/");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+});
+
+// 3. Register the generic named HttpClient for manual controller factory invocation
+builder.Services.AddHttpClient("RaceDayApi", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7142/");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+});
 
 
 var app = builder.Build();
 
 
-
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline middleware modules
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -62,9 +55,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
+// CRUCIAL: UseSession must be placed AFTER UseRouting and BEFORE UseAuthorization
 app.UseSession();
+
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
