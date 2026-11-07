@@ -1,164 +1,102 @@
-﻿@model RaceDaySystem.Client.Models.DTOs.DashboardViewModel
-
-@{
-    ViewData["Title"] = "System Dashboard";
-    string? role = Context.Session.GetString("Role");
+﻿@{
+    ViewData["Title"] = "Welcome to RaceDay";
 }
 
-<div class="container mt-4">
-    <!-- Header Welcome Banner -->
-    <div class="row mb-4 bg-light p-4 rounded shadow-sm align-items-center">
-        <div class="col-md-8">
-            <h2><i class="bi bi-speedometer2"></i> Welcome to the Race Day System Dashboard</h2>
-            <p class="text-muted mb-0">Hello, <strong>@Context.Session.GetString("Name")</strong>. View active race groupings, categories, and real-time position results below.</p>
+<div class="container mt-5">
+
+    <div class="p-5 mb-4 bg-primary text-white rounded shadow">
+        <div class="container-fluid py-4">
+            <h1 class="display-4 fw-bold">
+                🎉🎉🎉 Welcome to RaceDay
+            </h1>
+            <p class="fs-5">
+                South Africa's premier road running, walking, and cycling event
+                management platform.
+            </p>
+
+            <p>
+                RaceDay connects event organisers and participants through a modern
+                event management system that simplifies registrations, event tracking,
+                category management, and race results.
+            </p>
+
+            <a asp-controller="Account" asp-action="Register" class="btn btn-outline-light btn-lg">
+                Register
+            </a>
         </div>
-        <div class="col-md-4 text-md-end class-badge">
-            <span class="fs-6 me-2 text-secondary">Logged in as:</span>
-            <span class="badge bg-primary fs-6 px-3 py-2">@role</span>
+    </div>
+
+    <div class="row text-center mb-5">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h3> Events</h3>
+                    <p>
+                        Browse upcoming races, community runs, cycling events,
+                        and charity walks across South Africa.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h3> Categories</h3>
+                    <p>
+                        Manage race categories, entry fees, participant groups,
+                        and race classifications.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h3> Results</h3>
+                    <p>
+                        View race results, finishing positions, leaderboards,
+                        and participant performance records.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            <h2>About RaceDay</h2>
+
+            <p>
+                RaceDay was developed to support the growing road running,
+                walking, and cycling community in South Africa. The system allows
+                event organisers to create and manage events while participants can
+                register for races and track their results in one central location.
+            </p>
+
+            <p>
+                Features include:
+            </p>
+
+            <ul>
+                <li>Event Management</li>
+                <li>Participant Registration</li>
+                <li>Category Administration</li>
+                <li>Live Race Results</li>
+                <li>Performance Tracking</li>
+                <li>Weather Integration</li>
+            </ul>
+
+            <div class="alert alert-info mt-3">
+                <strong>Portfolio of Evidence (PoE)</strong><br />
+                This application was developed as part of the PROG6212
+                Portfolio of Evidence project and demonstrates modern
+                ASP.NET Core MVC development practices.
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <!-- Main Content Column (Left Side) -->
-        <div class="col-lg-8">
-
-            <!-- SECTION 1: Upcoming Race Events Panel -->
-            <div class="card shadow-sm mb-4">
-                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0"><i class="bi bi-calendar-event"></i> Upcoming Race Events</h5>
-                </div>
-                <div class="card-body p-0">
-                    @if (Model.Events != null && Model.Events.Any())
-                    {
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover mb-0 align-middle">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th class="ps-3">Name</th>
-                                        <th>Description</th>
-                                        <th>Location</th>
-                                        <th>Distance</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var ev in Model.Events)
-                                    {
-                                        <tr>
-                                            <td class="ps-3 fw-bold text-primary">@ev.Name</td>
-                                            <td>@ev.Description</td>
-                                            <td>@ev.Location</td>
-                                            <td><span class="badge bg-secondary">@ev.Distance km</span></td>
-                                            <td>@ev.Date.ToShortDateString()</td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    }
-                    else
-                    {
-                        <p class="text-muted text-center py-4 mb-0">
-                            <i class="bi bi-calendar-x d-block fs-3 mb-1"></i> No upcoming events found.
-                        </p>
-                    }
-                </div>
-            </div>
-
-            <!-- SECTION 2: Live Database Results Table View -->
-            <div class="card shadow-sm mb-4">
-                <div class="card-header bg-navy text-white" style="background-color: #1e293b;">
-                    <h5 class="mb-0 text-white"><i class="bi bi-trophy"></i> Live Race Leaderboard</h5>
-                </div>
-                <div class="card-body p-0">
-                    @if (Model.Results != null && Model.Results.Any())
-                    {
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover mb-0 align-middle">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th class="ps-3">Enrolment ID</th>
-                                        <th>Finish Time</th>
-                                        <th>Position Placement</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var result in Model.Results)
-                                    {
-                                        <tr>
-                                            <td class="ps-3 fw-mono text-secondary">#@result.EnrolmentId</td>
-                                            <td>@result.FinishTime.ToString(@"hh\:mm\:ss")</td>
-                                            <td>
-                                                <span class="badge bg-info text-darkfw-bold">Rank #@result.Position</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge @(result.Status == "Finished" ? "bg-success" : "bg-warning")">
-                                                    @result.Status
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    }
-                    else
-                    {
-                        <p class="text-muted text-center py-4 mb-0">
-                            <i class="bi bi-flag d-block fs-3 mb-1"></i> No finished race placements recorded yet.
-                        </p>
-                    }
-                </div>
-            </div>
-        </div>
-
-        <!-- Sidebar Panel Column (Right Side) -->
-        <div class="col-lg-4">
-
-            <!-- SECTION 3: Categories Reference Card -->
-            <div class="card shadow-sm mb-4">
-                <div class="card-header bg-secondary text-white">
-                    <h5 class="mb-0"><i class="bi bi-tags"></i> Race Classifications</h5>
-                </div>
-                <div class="card-body p-0">
-                    @if (Model.Categories != null && Model.Categories.Any())
-                    {
-                        <ul class="list-group list-group-flush">
-                            @foreach (var cat in Model.Categories)
-                            {
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span class="fw-bold"><i class="bi bi-tag text-muted me-2"></i>@cat.Name</span>
-                                    <span class="badge bg-light text-dark border">Fee: @cat.EntryFee.ToString("C")</span>
-                                </li>
-                            }
-                        </ul>
-                    }
-                    else
-                    {
-                        <p class="text-muted text-center py-4 mb-0">No active categories registered.</p>
-                    }
-                </div>
-            </div>
-
-            <!-- Management Quick Links Container for Organisers -->
-            @if (role == "Organiser")
-            {
-                <div class="card border-primary shadow-sm mb-4">
-                    <div class="card-body text-center">
-                        <h5 class="card-title text-primary"><i class="bi bi-shield-lock"></i> Organizer Control Actions</h5>
-                        <p class="card-text small text-muted">Use these fast shortcuts to add new track items or record metrics directly into the database.</p>
-                        <div class="d-grid gap-2">
-                            <a asp-controller="Events" asp-action="Create" class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-plus-circle"></i> Create New Event
-                            </a>
-                            <a asp-controller="Result" asp-action="Create" class="btn btn-outline-dark btn-sm">
-                                <i class="bi bi-pencil-square"></i> Record Live Result
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
 </div>
