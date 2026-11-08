@@ -1,0 +1,194 @@
+﻿@model RaceDaySystem.Client.Models.DTOs.ParticipantDashboardViewModelDto
+@{
+    ViewData["Title"] = "Participant Dashboard";
+}
+
+<div class="container mt-4">
+
+    <h2 class="text-primary mb-4">Participant Dashboard</h2>
+
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs" id="participantTabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#events">
+                View Events
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#results">
+                Results
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#profile">
+                Update Profile
+            </a>
+        </li>
+    </ul>
+
+    <div class="tab-content border p-4">
+
+        <!-- EVENTS -->
+        <div class="tab-pane fade show active" id="events">
+
+            <h4>Available Events</h4>
+
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Distance (KM)</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Events != null && Model.Events.Any())
+                    {
+                        foreach (var item in Model.Events)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                <td>@item.Date</td>
+                                <td>@item.Location</td>
+                                <td>@item.Distance</td>
+                                <td>@item.EventType</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center">
+                                No events found
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <!-- RESULTS -->
+        <div class="tab-pane fade" id="results">
+
+            <h4>Results</h4>
+
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Enrolment ID</th>
+                        <th>Finish Time</th>
+                        <th>Position</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @if (ViewBag.Results != null)
+                    {
+                        @foreach (var result in Model.Results)
+                        {
+                            <tr>
+                                <td>@result.EnrolmentId</td>
+                                <td>@result.FinishTime</td>
+                                <td>@result.Position</td>
+                                <td>@result.Status</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center">
+                                No results available
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+            <hr />
+
+            <h5>Update Result</h5>
+
+            <form asp-action="UpdateResult" method="post">
+
+                <div class="mb-3">
+                    <label>Enrollment ID</label>
+                    <input type="number"
+                           name="EnrolmentId"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Finish Time</label>
+                    <input type="text"
+                           name="FinishTime"
+                           class="form-control"
+                           placeholder="01:25:30" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Position</label>
+                    <input type="number"
+                           name="Position"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Status</label>
+                    <select name="Status" class="form-control">
+                        <option>Completed</option>
+                        <option>Pending</option>
+                        <option>Disqualified</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    Update Result
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- PROFILE -->
+        <div class="tab-pane fade" id="profile">
+
+            <h4>Update Profile</h4>
+
+            <form asp-action="UpdateProfile" method="post">
+
+                <div class="mb-3">
+                    <label>Name</label>
+                    <input type="text"
+                           name="Name"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Phone</label>
+                    <input type="text"
+                           name="Phone"
+                           class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Update Profile
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

@@ -45,6 +45,14 @@
                 <span asp-validation-for="Password" class="text-danger small"></span>
             </div>
 
+            <!-- Remember Me Checkbox Field -->
+            <div class="mb-3 form-check d-flex align-items-center gap-2">
+                <input asp-for="RememberMe" type="checkbox" class="form-check-input mt-0" id="RememberMeCheck" />
+                <label asp-for="RememberMe" class="form-check-label text-muted small" for="RememberMeCheck">
+                    Remember me on this device
+                </label>
+            </div>
+
             <!-- Role Info Banner Box -->
             <div class="card border-0 bg-opacity-10 bg-secondary p-3 mb-4" style="border-radius: 6px; background-color: #f1f3f9;">
                 <div class="d-flex align-items-start">
