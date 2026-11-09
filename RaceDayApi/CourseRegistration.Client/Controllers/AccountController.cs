@@ -190,6 +190,54 @@ namespace RaceDaySystem.Client.Controllers
             return RedirectToAction("Organiser", "Account");
         }
 
+        // GET: /Account/UpdateProfile
+        [HttpGet]
+        public IActionResult UpdateProfile()
+        {
+            var userId = HttpContext.Session.GetInt32("Id");
+            if (userId == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            var model = new UserSessionDto
+            {
+                Id = userId.Value,
+                Name = HttpContext.Session.GetString("Name") ?? string.Empty,
+                Role = HttpContext.Session.GetString("Role") ?? string.Empty
+            };
+
+            return View(model);
+        }
+
+        // POST: /Account/UpdateProfile
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateProfile(UserSessionDto model)
+        {
+            var userId = HttpContext.Session.GetInt32("Id");
+            if (userId == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // Update session values with the new name
+            HttpContext.Session.SetString("Name", model.Name);
+
+            // TODO: Send updated profile to your RaceDayApi endpoint, e.g.:
+            // var client = _httpClientFactory.CreateClient("RaceDayApi");
+            // var response = await client.PutAsJsonAsync($"api/users/{userId}", model);
+
+            TempData["SuccessMessage"] = "Profile updated successfully.";
+            return RedirectUserByRole(HttpContext.Session.GetString("Role") ?? "");
+        }
+
+
         [HttpPost]
         public IActionResult Logout()
         {
