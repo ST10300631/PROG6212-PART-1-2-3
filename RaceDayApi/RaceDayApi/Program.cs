@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using RaceDayApi.Data;
 using Microsoft.OpenApi.Models;
 using RaceDayApi.Services;
+using Azure.Storage.Blobs;
 
 namespace RaceDayApi
 
@@ -85,6 +86,14 @@ namespace RaceDayApi
             });
 
             builder.Services.AddAuthorization();
+
+            
+            var storageConnection = builder.Configuration
+            .GetConnectionString("StorageConnectionString")
+            ?? throw new Exception("Storage connection missing");
+            builder.Services.AddSingleton(
+            new BlobServiceClient(storageConnection));
+
 
             var app = builder.Build();
 

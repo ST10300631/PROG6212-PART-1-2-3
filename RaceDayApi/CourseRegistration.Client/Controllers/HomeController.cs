@@ -19,35 +19,10 @@ namespace RaceDaySystem.Client.Controllers
             _apiService = apiService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            // Gather all data elements concurrently from your API service
-            var eventsData = await _apiService.GetEventsAsync();
-            var categoriesData = new List<CategoryDto>();
-            var resultsData = new List<ResultDto>();
-
-            // Pack them completely into the master layout model bundle
-            var dashboardBundle = new DashboardViewModel
-            {
-                Categories = categoriesData,
-                Results = resultsData,
-                Events = eventsData,
-
-                // FIX: Satisfy all required properties of CreateEventDto
-                NewEvent = new CreateEventDto
-                {
-                    Name = string.Empty,
-                    Description = string.Empty,
-                    Location = string.Empty,
-                    EventType = string.Empty,
-                    Date = System.DateTime.Now,
-                    Distance = 0.0
-                }
-            };
-
-            return View(dashboardBundle);
+            return View();
         }
-
 
         public IActionResult Privacy()
         {

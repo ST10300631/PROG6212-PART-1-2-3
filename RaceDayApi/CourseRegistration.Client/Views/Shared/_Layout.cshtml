@@ -29,6 +29,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Gallery" asp-action="Index">Event Memories</a>
+                        </li>
 
                         <!-- Context Session Extraction -->
                         @{
@@ -38,7 +44,7 @@
                         <!-- Organiser Context Links -->
                         @if (role == "Organiser")
                         {
-                            <li class="nav-item">
+                            @*<li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Events" asp-action="Create">Create Event</a>
                             </li>
                             <li class="nav-item">
@@ -47,12 +53,20 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Result" asp-action="Result">Manage All Results</a>
                             </li>
+                            *@
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                                   asp-controller="Account"
+                                   asp-action="Organiser">
+                                    Organiser Dashboard
+                                </a>
+                            </li>
                         }
 
                         <!-- Participant Context Links -->
                         @if (role == "Participant")
                         {
-                            <li class="nav-item">
+                           @* <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Events" asp-action="Index">View Race Events</a>
                             </li>
                             <li class="nav-item">
@@ -60,6 +74,15 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark fw-bold" asp-controller="Result" asp-action="Result">My Race Results</a>
+                            </li>
+                            *@
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                                   asp-controller="Account"
+                                   asp-action="Participant">
+                                    Participant Dashboard
+                                </a>
                             </li>
                         }
                     </ul>

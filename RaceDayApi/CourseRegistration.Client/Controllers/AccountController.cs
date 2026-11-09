@@ -3,6 +3,7 @@ using RaceDaySystem.Client.Models;
 using RaceDaySystem.Client.Models.DTOs;
 using RaceDaySystem.Client.Services;
 using System.Net.Http;
+using System.Net.Http.Json; // Required for PostAsJsonAsync/ReadFromJsonAsync
 
 namespace RaceDaySystem.Client.Controllers
 {
@@ -11,91 +12,201 @@ namespace RaceDaySystem.Client.Controllers
         private readonly AuthApiService _auth;
         private readonly IHttpClientFactory _httpClientFactory;
 
-      
-
-        public AccountController(AuthApiService auth , IHttpClientFactory httpClientFactory)
+        public AccountController(AuthApiService auth, IHttpClientFactory httpClientFactory)
         {
             _auth = auth;
             _httpClientFactory = httpClientFactory;
         }
 
-        // GET: /Account/
-        public IActionResult Index()
-        {
-            return View("Login");
-        }
+        [HttpGet]
+        public IActionResult Login() => View();
+
+        [HttpGet]
+        public IActionResult Index() => RedirectToAction("Login");
 
         // POST: /Account/Login
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            var user = await _auth.LoginAsync(model);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
+            // _auth.LoginAsync returns your UserSessionDto object
+            var user = await _auth.LoginAsync(model);
             if (user == null)
             {
                 ModelState.AddModelError("", "Invalid email or password.");
                 return View(model);
             }
 
+            // Save user details to Session
             HttpContext.Session.SetInt32("Id", user.Id);
             HttpContext.Session.SetString("Name", user.Name);
             HttpContext.Session.SetString("Role", user.Role);
 
-            // CHANGE THIS LINE RIGHT HERE:
-            // This forwards the user to CategoryController's Index action
-            return RedirectToAction("Index", "Home");
+            // OPTIONAL: If you want to configure persistent tracking 
+            if (model.RememberMe)
+            {
+                // This sets a persistent cookie expiration value if your 
+                // cookie middleware is configured to read from it.
+                CookieOptions options = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(30),
+                    HttpOnly = true,
+                    Secure = true
+                };
+                Response.Cookies.Append("RememberMeUser", model.Email ?? "", options);
+            }
+
+            // DYNAMIC LOGIN REDIRECT based on the user's role
+            return RedirectUserByRole(user.Role);
         }
 
 
-        // POST: /Account/Logout
-        [HttpPost]
-        public IActionResult Logout()
-        {
-            // Clears all keys out of the active user session data store
-            HttpContext.Session.Clear();
-
-            // Redirects the logged-out user back to the public homepage layout view
-            return RedirectToAction("Index", "Home");
-        }
-
-        // 1. GET: /Account/Register
-        // This displays your new form to the user
         [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
+        public IActionResult Register() => View();
 
-        // 2. POST: /Account/Register
-        // This processes the submitted form and forwards it to your Web API backend
+        // POST: /Account/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterDto registerDto)
         {
             if (!ModelState.IsValid)
             {
-                return View(registerDto); // Returns form with validation errors if inputs are invalid
+                return View(registerDto);
             }
 
-            // Create an HTTP client configured to speak to your backend API project
             var client = _httpClientFactory.CreateClient("RaceDayApi");
-
-            // Send the registration payload to your API's registration endpoint
             var response = await client.PostAsJsonAsync("api/auth/register", registerDto);
 
             if (response.IsSuccessStatusCode)
             {
-                // Redirect the user to the Login page upon successful registration
+                // Assuming your Web API returns the registered user's ID/details upon success
+                // so you can instantly log them in and remember them without forcing a second login screen.
+                var registeredUser = await response.Content.ReadFromJsonAsync<UserSessionDto>();
+
+                if (registeredUser != null)
+                {
+                    HttpContext.Session.SetInt32("Id", registeredUser.Id);
+                    HttpContext.Session.SetString("Name", registeredUser.Name);
+                    HttpContext.Session.SetString("Role", registeredUser.Role);
+
+                    // DYNAMIC REGISTRATION REDIRECT based on their chosen role
+                    return RedirectUserByRole(registeredUser.Role);
+                }
+
+                // Fallback to login screen if API doesn't return user details
                 return RedirectToAction("Login");
             }
 
-            // If the API returned an error (e.g., email already exists), display it on the form
             var errorMsg = await response.Content.ReadAsStringAsync();
             ModelState.AddModelError(string.Empty, errorMsg ?? "An error occurred during registration.");
-
             return View(registerDto);
         }
 
+        private IActionResult RedirectUserByRole(string role)
+        {
+            switch (role?.Trim().ToLower())
+            {
+                case "participant":
+                    return RedirectToAction("Participant", "Account");
+
+                case "event organiser":
+                case "eventorganiser":
+                case "organiser": // Fixed: changed to lowercase
+                    return RedirectToAction("Organiser", "Account");
+
+                default:
+                    return Content($"Role received: '{role}'");
+            }
+        }
+
+
+        public async Task<IActionResult> Participant()
+        {
+            var role = HttpContext.Session.GetString("Role");
+
+            if (!string.Equals(role, "Participant",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+
+            var events = await client.GetFromJsonAsync<List<CreateEventDto>>("api/events");
+
+            var model = new ParticipantDashboardViewModelDto
+            {
+                Events = events ?? new List<CreateEventDto>()
+            };
+
+            return View(model);
+        }
+
+        public IActionResult Organiser()
+        {
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser",
+     StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateEvent(CreateEventDto dto)
+        {
+            return RedirectToAction("Organiser", "Account");
+        }
+
+        [HttpPost]
+        public IActionResult CreateCategory(CategoryDto dto)
+        {
+           return RedirectToAction("Organiser", "Account");
+        }
+
+        public IActionResult EditEvent(int id)
+        {
+            return View();
+        }
+
+        public IActionResult DeleteEvent(int id)
+        {
+            return RedirectToAction("Organiser", "Account");
+        }
+
+        public IActionResult EditCategory(int id)
+        {
+            return View();
+        }
+
+        public IActionResult DeleteCategory(int id)
+        {
+            return RedirectToAction("Organiser", "Account");
+        }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+    }
+
+    // Helper matching schema expected back from your backend login/registration API
+    public class UserSessionDto
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+
+        public string Email { get; set; } = string.Empty;
+
+        public string Role { get; set; } = string.Empty;
     }
 }
-

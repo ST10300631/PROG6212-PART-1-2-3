@@ -26,6 +26,13 @@
                 Update Profile
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#gallery">
+               Images
+            </a>
+        </li>
+
     </ul>
 
     <div class="tab-content border p-4">
@@ -74,6 +81,31 @@
             </table>
 
         </div>
+
+        <hr />
+
+        <h4>Share Event Memory</h4>
+
+        <form asp-controller="Gallery"
+              asp-action="Upload"
+              method="post"
+              enctype="multipart/form-data">
+
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label class="form-label">Upload Event Photo</label>
+                <input type="file"
+                       name="file"
+                       class="form-control"
+                       accept="image/*"
+                       required />
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Upload to Gallery
+            </button>
+        </form>
 
         <!-- RESULTS -->
         <div class="tab-pane fade" id="results">

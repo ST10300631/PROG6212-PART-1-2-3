@@ -1,0 +1,7 @@
+C:\Users\rafik\OneDrive - University of South Africa\Desktop\PROG6212-PART-1-2-3\RaceDayApi\CourseRegistration.Client\obj\Release\net8.0\PubTmp\Out\RaceDaySystem.Client.exe
+C:\Users\rafik\OneDrive - University of South Africa\Desktop\PROG6212-PART-1-2-3\RaceDayApi\CourseRegistration.Client\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\rafik\OneDrive - University of South Africa\Desktop\PROG6212-PART-1-2-3\RaceDayApi\CourseRegistration.Client\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\rafik\OneDrive - University of South Africa\Desktop\PROG6212-PART-1-2-3\RaceDayApi\CourseRegistration.Client\obj\Release\net8.0\PubTmp\Out\RaceDaySystem.Client.dll
+C:\Users\rafik\OneDrive - University of South Africa\Desktop\PROG6212-PART-1-2-3\RaceDayApi\CourseRegistration.Client\obj\Release\net8.0\PubTmp\Out\RaceDaySystem.Client.deps.json
+C:\Users\rafik\OneDrive - University of South Africa\Desktop\PROG6212-PART-1-2-3\RaceDayApi\CourseRegistration.Client\obj\Release\net8.0\PubTmp\Out\RaceDaySystem.Client.runtimeconfig.json
+C:\Users\rafik\OneDrive - University of South Africa\Desktop\PROG6212-PART-1-2-3\RaceDayApi\CourseRegistration.Client\obj\Release\net8.0\PubTmp\Out\RaceDaySystem.Client.pdb

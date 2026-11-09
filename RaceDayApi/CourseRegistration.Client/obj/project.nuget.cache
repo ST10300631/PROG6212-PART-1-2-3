@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "LqeYhTqP0Ws=",
+  "dgSpecHash": "gcQdqfD9WrE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\RaceDaySystem.Client.csproj",
+  "projectFilePath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\RaceDaySystem.Client.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Student\\.nuget\\packages\\system.net.http.json\\8.0.0\\system.net.http.json.8.0.0.nupkg.sha512",
-    "C:\\Users\\Student\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\Student\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
+    "C:\\Users\\rafik\\.nuget\\packages\\system.net.http.json\\8.0.0\\system.net.http.json.8.0.0.nupkg.sha512",
+    "C:\\Users\\rafik\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\rafik\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
+    "C:\\Users\\rafik\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.24\\microsoft.netcore.app.ref.8.0.24.nupkg.sha512",
+    "C:\\Users\\rafik\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.24\\microsoft.windowsdesktop.app.ref.8.0.24.nupkg.sha512",
+    "C:\\Users\\rafik\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.24\\microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512",
+    "C:\\Users\\rafik\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.24\\microsoft.netcore.app.host.win-x64.8.0.24.nupkg.sha512"
   ],
   "logs": []
 }

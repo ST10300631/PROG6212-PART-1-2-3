@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\ReaceDayApi.Test.csproj": {}
+    "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\ReaceDayApi.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj": {
+    "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\RaceDaySystem.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj",
-        "projectName": "RaceDayApi",
-        "projectPath": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj",
-        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\obj\\",
+        "projectUniqueName": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\RaceDaySystem.Client.csproj",
+        "projectName": "RaceDaySystem.Client",
+        "projectPath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\RaceDaySystem.Client.csproj",
+        "packagesPath": "C:\\Users\\rafik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rafik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,13 +44,102 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj",
+        "projectName": "RaceDayApi",
+        "projectPath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj",
+        "packagesPath": "C:\\Users\\rafik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\rafik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\RaceDaySystem.Client.csproj": {
+                "projectPath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\CourseRegistration.Client\\RaceDaySystem.Client.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.13.1, )"
+            },
+            "Azure.Storage.Files.Shares": {
+              "target": "Package",
+              "version": "[12.1.0, )"
+            },
+            "Azure.Storage.Queues": {
+              "target": "Package",
+              "version": "[12.11.1, )"
+            },
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.2.0, )"
@@ -81,6 +171,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Azure": {
+              "target": "Package",
+              "version": "[1.5.0, )"
             },
             "Moq": {
               "target": "Package",
@@ -124,24 +218,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\ReaceDayApi.Test.csproj": {
+    "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\ReaceDayApi.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\ReaceDayApi.Test.csproj",
+        "projectUniqueName": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\ReaceDayApi.Test.csproj",
         "projectName": "ReaceDayApi.Test",
-        "projectPath": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\ReaceDayApi.Test.csproj",
-        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\obj\\",
+        "projectPath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\ReaceDayApi.Test.csproj",
+        "packagesPath": "C:\\Users\\rafik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\ReaceDayApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rafik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -150,14 +244,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj": {
-                "projectPath": "C:\\Users\\Student\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj"
+              "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj": {
+                "projectPath": "C:\\Users\\rafik\\OneDrive - University of South Africa\\Desktop\\PROG6212-PART-1-2-3\\RaceDayApi\\RaceDayApi\\RaceDayApi.csproj"
               }
             }
           }
@@ -171,8 +266,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -215,7 +309,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

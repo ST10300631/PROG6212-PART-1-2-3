@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\RaceDayApi",
+    "\\RaceDayApi\\CourseRegistration.Client",
+    "\\RaceDayApi\\CourseRegistration.Client\\Views",
+    "\\RaceDayApi\\CourseRegistration.Client\\Views\\Account",
     "\\RaceDayApi\\RaceDayApi"
   ],
-  "SelectedNode": "\\RaceDayApi\\RaceDayApi.sln",
+  "SelectedNode": "\\RaceDayApi\\CourseRegistration.Client\\Views\\Account\\Register.cshtml",
   "PreviewInSolutionExplorer": false
 }

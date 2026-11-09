@@ -7,5 +7,7 @@
         public List<ResultDto> Results { get; set; } = new();
 
         public UpdateProfileDto Profile { get; set; } = new();
+
+        public Gallery Images { get; set; } = new();
     }
 }

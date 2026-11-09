@@ -5,6 +5,7 @@ using RaceDayApi.Models;
 using BCrypt.Net;
 using RaceDayApi.Services;
 using RaceDayApi.DTOs;
+using RaceDaySystem.Client.Models;
 
 
 namespace RaceDayApi.Controllers
@@ -36,7 +37,7 @@ namespace RaceDayApi.Controllers
                 Email = dto.Email,
                 Phone = dto.Phone,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
-                Role = "Participant"
+                Role = dto.Role
             };
 
             _context.Users.Add(user);
@@ -54,16 +55,17 @@ namespace RaceDayApi.Controllers
             if (user == null)
                 return Unauthorized();
 
-            if (!BCrypt.Net.BCrypt.Verify(dto.Password,
-                user.PasswordHash))
+            if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
                 return Unauthorized();
 
             var token = _jwtService.GenerateToken(user);
 
-            return Ok(new
+            return Ok(new LoginResponse
             {
-                token,
-                user
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email,
+                Role = user.Role
             });
         }
 
