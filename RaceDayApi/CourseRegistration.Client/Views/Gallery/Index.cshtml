@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Gallery>
+
+@{
+    ViewData["Title"] = "Event Gallery";
+}
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">
+        📸 Event Memories
+    </h2>
+
+    <div class="row">
+
+        @foreach (var image in Model)
+        {
+            var base64 =
+                Convert.ToBase64String(image.ImageData);
+
+            var imageSource =
+                $"data:{image.ContentType};base64,{base64}";
+
+            <div class="col-md-4 mb-4">
+
+                <div class="card shadow-sm">
+
+                    <img src="@imageSource"
+                         class="card-img-top"
+                         style="height:300px; object-fit:cover;"
+                         alt="@image.FileName" />
+
+                    <div class="card-body">
+                        <small class="text-muted">
+                            @image.FileName
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
