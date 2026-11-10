@@ -69,6 +69,9 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 ## 20 commits done
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a0ffd02b-738e-4b6a-88d0-94c5b138795a" />
 
+## Aruze Local Blob
+<img width="1562" height="467" alt="image" src="https://github.com/user-attachments/assets/54b2c7f0-588a-4a37-b87c-376ab2dd6398" />
+
 
 ## YouTube Link
 
