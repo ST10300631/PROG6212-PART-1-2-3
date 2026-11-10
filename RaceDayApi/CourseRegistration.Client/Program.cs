@@ -1,5 +1,6 @@
 using RaceDaySystem.Client.Services;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add standard MVC controller services to the container
@@ -38,6 +39,7 @@ builder.Services.AddHttpClient("RaceDayApi", client =>
     client.BaseAddress = new Uri("https://localhost:7142/");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
+
 
 
 var app = builder.Build();

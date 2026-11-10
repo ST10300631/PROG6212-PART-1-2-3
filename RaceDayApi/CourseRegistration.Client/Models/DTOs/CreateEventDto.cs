@@ -4,7 +4,7 @@ namespace RaceDaySystem.Client.Models.DTOs
 {
     public class CreateEventDto
     {
-       
+        public int Id { get; set; }
         public required string Name { get; set; }
 
       

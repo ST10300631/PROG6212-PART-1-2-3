@@ -80,6 +80,20 @@ namespace RaceDayApi.Controllers
             });
         }
 
+        // GET: api/categories/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Category>> GetCategory(int id)
+        {
+            var category = await _context.Categories.FindAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(category);
+        }
+
+
         // GET: api/categories
         [HttpGet("api/categories")]
         public async Task<IActionResult> GetAllCategories()

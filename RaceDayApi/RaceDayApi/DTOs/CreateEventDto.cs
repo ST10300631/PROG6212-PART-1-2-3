@@ -4,6 +4,8 @@ namespace RaceDayApi.DTOs
 {
     public class CreateEventDto
     {
+        public int Id { get; set; }
+
         [Required]
         public required string Name { get; set; }
 

@@ -1311,6 +1311,76 @@
         }
       },
       "additionalProperties": false
+    },
+    "queueClientOptions": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/azureOptions"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Version": {
+              "type": "string"
+            },
+            "GeoRedundantSecondaryUri": {
+              "type": "string",
+              "format": "uri"
+            },
+            "MessageEncoding": {
+              "type": "string"
+            },
+            "EnableTenantDiscovery": {
+              "type": "boolean"
+            },
+            "Audience": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "shareClientOptions": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/azureOptions"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Version": {
+              "type": "string"
+            },
+            "TransferValidation": {
+              "type": "object"
+            },
+            "AllowTrailingDot": {
+              "type": "boolean"
+            },
+            "AllowSourceTrailingDot": {
+              "type": "boolean"
+            },
+            "ShareTokenIntent": {
+              "$ref": "#/definitions/shareTokenIntent"
+            },
+            "Audience": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "shareTokenIntent": {
+      "anyOf": [
+        {
+          "enum": [
+            "backup"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
     }
   },
   "properties": {
@@ -1343,10 +1413,59 @@
             "$ref": "#/definitions/azureOptions"
           }
         },
-        "additionalProperties": true
+        "additionalProperties": true,
+        "description": "Configuration for a named client instance."
+      },
+      "properties": {
+        "QueueClient": {
+          "type": "object",
+          "description": "Configuration for QueueClient.",
+          "properties": {
+            "Url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Gets or sets the Url."
+            },
+            "ConnectionString": {
+              "type": "string"
+            },
+            "QueueName": {
+              "type": "string"
+            },
+            "Credential": {
+              "$ref": "#/definitions/credential"
+            },
+            "Options": {
+              "$ref": "#/definitions/queueClientOptions"
+            }
+          }
+        },
+        "ShareClient": {
+          "type": "object",
+          "description": "Configuration for ShareClient.",
+          "properties": {
+            "Url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Gets or sets the Url."
+            },
+            "ConnectionString": {
+              "type": "string"
+            },
+            "ShareName": {
+              "type": "string"
+            },
+            "Credential": {
+              "$ref": "#/definitions/credential"
+            },
+            "Options": {
+              "$ref": "#/definitions/shareClientOptions"
+            }
+          }
+        }
       }
     }
   },
   "type": "object",
-  "SourceSegments": "C:\\Users\\Student\\.nuget\\packages\\system.clientmodel\\1.14.0\\ConfigurationSchema.json;C:\\Users\\Student\\.nuget\\packages\\azure.core\\1.60.0\\ConfigurationSchema.json"
+  "SourceSegments": "C:\\Users\\Student\\.nuget\\packages\\system.clientmodel\\1.15.0\\ConfigurationSchema.json;C:\\Users\\Student\\.nuget\\packages\\azure.core\\1.61.0\\ConfigurationSchema.json;C:\\Users\\Student\\.nuget\\packages\\azure.storage.queues\\12.28.1\\ConfigurationSchema.json;C:\\Users\\Student\\.nuget\\packages\\azure.storage.files.shares\\12.28.0\\ConfigurationSchema.json"
 }

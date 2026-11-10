@@ -146,48 +146,245 @@ namespace RaceDaySystem.Client.Controllers
             return View(model);
         }
 
-        public IActionResult Organiser()
+        // GET: /Account/Organiser
+        [HttpGet]
+        public async Task<IActionResult> Organiser()
         {
             var role = HttpContext.Session.GetString("Role");
-            if (!string.Equals(role, "Organiser",
-     StringComparison.OrdinalIgnoreCase))
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
             {
                 return RedirectToAction("Login");
             }
 
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+
+            var events = await client.GetFromJsonAsync<List<CreateEventDto>>("api/events");
+            var categories = await client.GetFromJsonAsync<List<CategoryDto>>("api/categories");
+
+            ViewBag.Events = events ?? new List<CreateEventDto>();
+            ViewBag.Categories = categories ?? new List<CategoryDto>();
+
             return View();
         }
 
+        // POST: /Account/CreateEvent
         [HttpPost]
-        public IActionResult CreateEvent(CreateEventDto dto)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateEvent(CreateEventDto dto)
         {
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                TempData["ErrorMessage"] = "Please fill in all required event fields.";
+                return RedirectToAction("Organiser", "Account");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+            var response = await client.PostAsJsonAsync("api/events", dto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Event created successfully!";
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                TempData["ErrorMessage"] = $"Failed to create event: {error}";
+            }
+
             return RedirectToAction("Organiser", "Account");
         }
-
+        // POST: /Account/CreateCategory
         [HttpPost]
-        public IActionResult CreateCategory(CategoryDto dto)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCategory(CategoryDto dto)
         {
-           return RedirectToAction("Organiser", "Account");
-        }
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
 
-        public IActionResult EditEvent(int id)
-        {
-            return View();
-        }
+            if (!ModelState.IsValid)
+            {
+                TempData["ErrorMessage"] = "Please fill in all required category fields.";
+                return RedirectToAction("Organiser", "Account");
+            }
 
-        public IActionResult DeleteEvent(int id)
-        {
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+
+            // Verify whether your API controller route is "api/categories" or "api/category"
+            var response = await client.PostAsJsonAsync("api/categories", dto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Category created successfully!";
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                TempData["ErrorMessage"] = $"Failed to create category: {error}";
+            }
+
             return RedirectToAction("Organiser", "Account");
         }
 
-        public IActionResult EditCategory(int id)
+        // GET: /Account/EditEvent/5
+        [HttpGet]
+        public async Task<IActionResult> EditEvent(int id)
         {
-            return View();
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+            var ev = await client.GetFromJsonAsync<CreateEventDto>($"api/events/{id}");
+
+            if (ev == null)
+            {
+                TempData["ErrorMessage"] = "Event not found.";
+                return RedirectToAction("Organiser");
+            }
+
+            return View(ev);
         }
 
-        public IActionResult DeleteCategory(int id)
+        // POST: /Account/EditEvent
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditEvent(CreateEventDto dto)
         {
-            return RedirectToAction("Organiser", "Account");
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+            var response = await client.PutAsJsonAsync($"api/events/{dto.Id}", dto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Event updated successfully!";
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                TempData["ErrorMessage"] = $"Failed to update event: {error}";
+            }
+
+            return RedirectToAction("Organiser");
+        }
+
+        // GET: /Account/DeleteEvent/5
+        [HttpGet]
+        public async Task<IActionResult> DeleteEvent(int id)
+        {
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+            var response = await client.DeleteAsync($"api/events/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Event deleted successfully!";
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                TempData["ErrorMessage"] = $"Failed to delete event: {error}";
+            }
+
+            return RedirectToAction("Organiser");
+        }
+
+
+        // GET: /Account/EditCategory/5
+        [HttpGet]
+        public async Task<IActionResult> EditCategory(int id)
+        {
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+            var categories = await client.GetFromJsonAsync<List<CategoryDto>>("api/categories");
+            var category = categories?.FirstOrDefault(c => c.Id == id);
+
+            if (category == null)
+            {
+                TempData["ErrorMessage"] = "Category not found.";
+                return RedirectToAction("Organiser");
+            }
+
+            return View(category);
+        }
+
+
+        // POST: /Account/EditCategory
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditCategory(CategoryDto dto)
+        {
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+            var response = await client.PutAsJsonAsync($"api/categories/{dto.Id}", dto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Category updated successfully!";
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                TempData["ErrorMessage"] = $"Failed to update category: {error}";
+            }
+
+            return RedirectToAction("Organiser");
+        }
+
+        // GET: /Account/DeleteCategory/5
+        [HttpGet]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Organiser", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+            var response = await client.DeleteAsync($"api/categories/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Category deleted successfully!";
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                TempData["ErrorMessage"] = $"Failed to delete category: {error}";
+            }
+
+            return RedirectToAction("Organiser");
         }
 
         // GET: /Account/UpdateProfile
@@ -210,10 +407,47 @@ namespace RaceDaySystem.Client.Controllers
             return View(model);
         }
 
+        
+        // POST: /Account/UpdateResult
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateResult(int EnrolmentId, string FinishTime, int Position, string Status)
+        {
+            var role = HttpContext.Session.GetString("Role");
+            if (!string.Equals(role, "Participant", StringComparison.OrdinalIgnoreCase))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+
+            var payload = new
+            {
+                EnrolmentId,
+                FinishTime,
+                Position,
+                Status
+            };
+
+            // Adjust "api/results" to match your RaceDayApi controller route
+            var response = await client.PostAsJsonAsync("api/results", payload);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Result updated successfully.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Failed to update result.";
+            }
+
+            return RedirectToAction("Participant");
+        }
+
         // POST: /Account/UpdateProfile
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult UpdateProfile(UserSessionDto model)
+        public async Task<IActionResult> UpdateProfile(string Name, string Phone)
         {
             var userId = HttpContext.Session.GetInt32("Id");
             if (userId == null)
@@ -221,20 +455,17 @@ namespace RaceDaySystem.Client.Controllers
                 return RedirectToAction("Login");
             }
 
-            if (!ModelState.IsValid)
+            if (!string.IsNullOrWhiteSpace(Name))
             {
-                return View(model);
+                HttpContext.Session.SetString("Name", Name);
             }
 
-            // Update session values with the new name
-            HttpContext.Session.SetString("Name", model.Name);
-
-            // TODO: Send updated profile to your RaceDayApi endpoint, e.g.:
-            // var client = _httpClientFactory.CreateClient("RaceDayApi");
-            // var response = await client.PutAsJsonAsync($"api/users/{userId}", model);
+            // Adjust "api/users/{userId}" to match your RaceDayApi profile update endpoint
+            var client = _httpClientFactory.CreateClient("RaceDayApi");
+            await client.PutAsJsonAsync($"api/users/{userId}", new { Id = userId, Name, Phone });
 
             TempData["SuccessMessage"] = "Profile updated successfully.";
-            return RedirectUserByRole(HttpContext.Session.GetString("Role") ?? "");
+            return RedirectToAction("Participant");
         }
 
 

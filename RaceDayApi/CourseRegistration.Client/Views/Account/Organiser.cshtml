@@ -4,13 +4,24 @@
 
 <div class="container mt-4">
 
-    <h2 class="text-primary">Organiser Dashboard</h2>
+    <h2 class="text-primary mb-4">Organiser Dashboard</h2>
 
-    <ul class="nav nav-tabs">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs" id="organiserTabs" role="tablist">
         <li class="nav-item">
             <a class="nav-link active"
                data-bs-toggle="tab"
-               href="#events">
+               href="#events"
+               role="tab">
                 Event Management
             </a>
         </li>
@@ -18,61 +29,63 @@
         <li class="nav-item">
             <a class="nav-link"
                data-bs-toggle="tab"
-               href="#categories">
+               href="#categories"
+               role="tab">
                 Category Management
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link"
+               data-bs-toggle="tab"
+               href="#gallery"
+               role="tab">
+                Images
             </a>
         </li>
     </ul>
 
-    <div class="tab-content border p-4">
+    <div class="tab-content border border-top-0 p-4">
 
         <!-- EVENT CRUD -->
-        <div class="tab-pane fade show active" id="events">
+        <div class="tab-pane fade show active" id="events" role="tabpanel">
 
             <h3>Create Event</h3>
 
             <form asp-action="CreateEvent" method="post">
+                @Html.AntiForgeryToken()
 
                 <div class="mb-3">
                     <label>Event Name</label>
-                    <input name="Name" class="form-control" />
+                    <input name="Name" class="form-control" required />
                 </div>
 
                 <div class="mb-3">
                     <label>Description</label>
-                    <textarea name="Description"
-                              class="form-control"></textarea>
+                    <textarea name="Description" class="form-control"></textarea>
                 </div>
 
                 <div class="mb-3">
                     <label>Date</label>
-                    <input type="date"
-                           name="Date"
-                           class="form-control" />
+                    <input type="date" name="Date" class="form-control" required />
                 </div>
 
                 <div class="mb-3">
                     <label>Location</label>
-                    <input name="Location"
-                           class="form-control" />
+                    <input name="Location" class="form-control" required />
                 </div>
 
                 <div class="mb-3">
                     <label>Distance (KM)</label>
-                    <input type="number"
-                           step="0.1"
-                           name="Distance"
-                           class="form-control" />
+                    <input type="number" step="0.1" name="Distance" class="form-control" />
                 </div>
 
                 <div class="mb-3">
                     <label>Event Type</label>
-                    <input name="EventType"
-                           class="form-control" />
+                    <input name="EventType" class="form-control" />
                 </div>
 
-                <button type="submit"
-                        class="btn btn-success">
+                <button type="submit" class="btn btn-success">
                     Create Event
                 </button>
             </form>
@@ -121,46 +134,43 @@
                             </tr>
                         }
                     }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center">No events found</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
 
         </div>
 
         <!-- CATEGORY CRUD -->
-        <div class="tab-pane fade" id="categories">
+        <div class="tab-pane fade" id="categories" role="tabpanel">
 
             <h3>Create Category</h3>
 
             <form asp-action="CreateCategory" method="post">
+                @Html.AntiForgeryToken()
 
                 <div class="mb-3">
                     <label>Name</label>
-
-                    <input name="Name"
-                           class="form-control" />
+                    <input name="Name" class="form-control" required />
                 </div>
 
                 <div class="mb-3">
                     <label>Description</label>
-
-                    <textarea name="Description"
-                              class="form-control"></textarea>
+                    <textarea name="Description" class="form-control"></textarea>
                 </div>
 
                 <div class="mb-3">
                     <label>Entry Fee</label>
-
-                    <input type="number"
-                           step="0.01"
-                           name="EntryFee"
-                           class="form-control" />
+                    <input type="number" step="0.01" name="EntryFee" class="form-control" />
                 </div>
 
-                <button type="submit"
-                        class="btn btn-primary">
+                <button type="submit" class="btn btn-primary">
                     Create Category
                 </button>
-
             </form>
 
             <hr />
@@ -168,7 +178,6 @@
             <h3>Category List</h3>
 
             <table class="table table-bordered">
-
                 <thead class="table-dark">
                     <tr>
                         <th>Name</th>
@@ -179,19 +188,16 @@
                 </thead>
 
                 <tbody>
-
                     @if (ViewBag.Categories != null)
                     {
                         foreach (var category in ViewBag.Categories)
                         {
                             <tr>
-
                                 <td>@category.Name</td>
                                 <td>@category.Description</td>
                                 <td>R @category.EntryFee</td>
 
                                 <td>
-
                                     <a asp-action="EditCategory"
                                        asp-route-id="@category.Id"
                                        class="btn btn-warning btn-sm">
@@ -203,17 +209,45 @@
                                        class="btn btn-danger btn-sm">
                                         Delete
                                     </a>
-
                                 </td>
-
                             </tr>
                         }
                     }
-
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center">No categories found</td>
+                        </tr>
+                    }
                 </tbody>
-
             </table>
 
+        </div>
+
+        <!-- IMAGES / GALLERY TAB -->
+        <div class="tab-pane fade" id="gallery" role="tabpanel">
+            <h3>Share Event Memory</h3>
+
+            <form asp-controller="Gallery"
+                  asp-action="Upload"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                @Html.AntiForgeryToken()
+
+                <div class="mb-3">
+                    <label class="form-label">Upload Event Photo</label>
+                    <input type="file"
+                           name="file"
+                           class="form-control"
+                           accept="image/*"
+                           required />
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    Upload to Gallery
+                </button>
+            </form>
         </div>
 
     </div>
