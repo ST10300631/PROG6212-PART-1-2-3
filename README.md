@@ -28,6 +28,8 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 
 ```
 
+## YouTube Link
+https://youtu.be/rXWyJ4QfR9k
 
 ## ERD schema 📜
 <img width="1490" height="1456" alt="RaceDay Erd PNG" src="https://github.com/user-attachments/assets/6e19c11f-2b77-4632-ad40-d01e9df18b6a" />
@@ -72,7 +74,5 @@ RaceDay is a full-stack, cloud-aware, API-driven event management platform built
 ## Aruze Local Blob
 <img width="1562" height="467" alt="image" src="https://github.com/user-attachments/assets/54b2c7f0-588a-4a37-b87c-376ab2dd6398" />
 
-
-## YouTube Link
 
 
